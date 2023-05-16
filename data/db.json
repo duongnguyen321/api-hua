@@ -5,11 +5,11 @@
       "name": "Huawei Matebook X Pro",
       "type": "new",
       "category": "laptop",
-      "quantity": 10,
+      "quantity": 100,
       "price": 1499,
       "image": [
-        "/huawei-matebook-x-pro/huawei-matebook-x-pro.webp",
-        "/huawei-matebook-x-pro/huawei-matebook-x-pro2.webp"
+        "/images/huawei-matebook-x-pro/huawei-matebook-x-pro.webp",
+        "/images/huawei-matebook-x-pro/huawei-matebook-x-pro2.webp"
       ],
       "ratings": [
         {
@@ -38,10 +38,10 @@
       "type": "new",
       "category": "phone",
       "price": 1299,
-      "quantity": 15,
+      "quantity": 150,
       "image": [
-        "/huawei-p50-pro/huawei-p50-pro.webp",
-        "/huawei-p50-pro/huawei-p50-pro2.webp"
+        "/images/huawei-p50-pro/huawei-p50-pro.webp",
+        "/images/huawei-p50-pro/huawei-p50-pro2.webp"
       ],
       "ratings": [
         {
@@ -66,10 +66,10 @@
       "type": "new",
       "category": "phone",
       "price": 599,
-      "quantity": 8,
+      "quantity": 986,
       "image": [
-        "/huawei-p50-pocket/huawei-p50-pocket.webp",
-        "/huawei-p50-pocket/huawei-p50-pocket2.webp"
+        "/images/huawei-p50-pocket/huawei-p50-pocket.webp",
+        "/images/huawei-p50-pocket/huawei-p50-pocket2.webp"
       ],
       "ratings": [
         {
@@ -94,10 +94,10 @@
       "type": "used",
       "category": "laptop",
       "price": 599,
-      "quantity": 10,
+      "quantity": 90,
       "image": [
-        "/huawei-matebook-d14/huawei-matebook-d14.webp",
-        "/huawei-matebook-d14/huawei-matebook-d142.webp"
+        "/images/huawei-matebook-d14/huawei-matebook-d14.webp",
+        "/images/huawei-matebook-d14/huawei-matebook-d142.webp"
       ],
       "ratings": [
         {
@@ -122,10 +122,10 @@
       "type": "used",
       "category": "phone",
       "price": 499,
-      "quantity": 54,
+      "quantity": 94,
       "image": [
-        "/huawei-p50-pocket/huawei-p50-pocket.webp",
-        "/huawei-p50-pocket/huawei-p50-pocket2.webp"
+        "/images/huawei-p50-pocket/huawei-p50-pocket.webp",
+        "/images/huawei-p50-pocket/huawei-p50-pocket2.webp"
       ],
       "ratings": [
         {
@@ -140,6 +140,94 @@
       "sales": [
         {
           "type": "used",
+          "count": 50
+        }
+      ]
+    },
+    {
+      "id": "6-hw-matebook-x-pro",
+      "name": "Huawei Matebook X Pro",
+      "type": "used",
+      "category": "laptop",
+      "quantity": 100,
+      "price": 1499,
+      "image": [
+        "/images/huawei-matebook-x-pro/huawei-matebook-x-pro.webp",
+        "/images/huawei-matebook-x-pro/huawei-matebook-x-pro2.webp"
+      ],
+      "ratings": [
+        {
+          "user_id": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
+          "rating": 10
+        },
+        {
+          "user_id": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+          "rating": 8
+        }
+      ],
+      "sales": [
+        {
+          "type": "new",
+          "count": 50
+        },
+        {
+          "type": "used",
+          "count": 20
+        }
+      ]
+    },
+    {
+      "id": "7-hw-p50-pro",
+      "name": "Huawei P50 Pro",
+      "type": "used",
+      "category": "phone",
+      "price": 1299,
+      "quantity": 143,
+      "image": [
+        "/images/huawei-p50-pro/huawei-p50-pro.webp",
+        "/images/huawei-p50-pro/huawei-p50-pro2.webp"
+      ],
+      "ratings": [
+        {
+          "user_id": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
+          "rating": 10
+        },
+        {
+          "user_id": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+          "rating": 9
+        }
+      ],
+      "sales": [
+        {
+          "type": "new",
+          "count": 150
+        }
+      ]
+    },
+    {
+      "id": "8-hw-p50-pocket",
+      "name": "Huawei P50 Pocket",
+      "type": "used",
+      "category": "phone",
+      "price": 599,
+      "quantity": 1000,
+      "image": [
+        "/images/huawei-p50-pocket/huawei-p50-pocket.webp",
+        "/images/huawei-p50-pocket/huawei-p50-pocket2.webp"
+      ],
+      "ratings": [
+        {
+          "user_id": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+          "rating": 7
+        },
+        {
+          "user_id": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
+          "rating": 8
+        }
+      ],
+      "sales": [
+        {
+          "type": "new",
           "count": 50
         }
       ]
@@ -178,59 +266,35 @@
   ],
   "orders": [
     {
-      "id": "33f06aed-bd90-4ce3-8da3-d98998dd0akh",
-      "user_id": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
+      "id": "8f607bb5-e603-488e-ba17-798fc333d17b",
+      "user_id": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
       "product_id": [
-        "4-hw-matebook-d14",
-        "5-hw-p50-pocket"
+        "3-hw-p50-pocket",
+        "5-hw-p50-pocket",
+        "7-hw-p50-pro",
+        "4-hw-matebook-d14"
       ],
       "quantity": [
-        2,
-        3
+        3,
+        5,
+        7,
+        5
       ],
-      "total_price": 2695,
+      "total_price": 16380,
       "status": "Đang xử lý"
     },
     {
-      "id": "6521c1b9-7edd-4574-9f23-8e9fcaaadfbf",
+      "id": "89df00bf-ebd8-4d11-9dd7-ec7a153b7731",
       "user_id": "33f06aed-bd90-4ce3-8da3-d98998dd0c50",
       "product_id": [
         "3-hw-p50-pocket",
         "4-hw-matebook-d14"
       ],
       "quantity": [
-        1,
-        2
+        11,
+        5
       ],
-      "total_price": 1797,
-      "status": "Đang xử lý"
-    },
-    {
-      "id": "4fc68c77-f0d4-402a-a553-9372993b5470",
-      "user_id": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
-      "product_id": [
-        "3-hw-p50-pocket",
-        "5-hw-p50-pocket"
-      ],
-      "quantity": [
-        2,
-        1
-      ],
-      "total_price": 1697,
-      "status": "Đang xử lý"
-    },
-    {
-      "id": "cc6a13aa-6b67-4de1-b608-97338fd8a449",
-      "user_id": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
-      "product_id": [
-        "3-hw-p50-pocket",
-        "5-hw-p50-pocket"
-      ],
-      "quantity": [
-        2,
-        1
-      ],
-      "total_price": 1697,
+      "total_price": 9584,
       "status": "Đang xử lý"
     }
   ]
