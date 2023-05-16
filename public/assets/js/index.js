@@ -5,6 +5,7 @@ const getData = async () => {
   const data = await response.json();
   return data;
 };
+
 const render = async (data) => {
   const elements = Object.keys(data).map((key) => {
     const element = document.createElement("div");
@@ -16,5 +17,5 @@ const render = async (data) => {
 };
 window.addEventListener("DOMContentLoaded", async () => {
   const data = await getData();
-  render(data);
+  await render(data);
 });
