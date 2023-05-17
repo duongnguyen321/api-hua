@@ -13,7 +13,14 @@ const rootRouter = require("../routes/root");
 
 // Enable JSON body parsing
 server.use(bodyParser);
-
+server.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 // Use the routes
 server.use("/products", productsRouter);
 server.use("/orders", ordersRouter);
