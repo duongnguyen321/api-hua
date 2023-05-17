@@ -86,7 +86,6 @@ code {
 }
 
 .card > *:hover {
-  background-color: #baa4da15;
   cursor: pointer;
 }
 
