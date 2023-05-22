@@ -5,9 +5,7 @@ const pushGit = (text) => {
   console.log("Pushing code to Git...");
 
   return new Promise((resolve, reject) => {
-    const pushChild = exec(
-      `git add . && git commit -m "${text}" && git push heroku main`
-    );
+    const pushChild = exec(`git add . && git commit -m "${text}" && git push`);
 
     pushChild.stdout.on("data", (data) => {
       console.log(data);
