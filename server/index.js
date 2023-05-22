@@ -19,6 +19,7 @@ server.use(function (req, res, next) {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
+  res.set("Cache-Control", "no-store");
   next();
 });
 // Use the routes

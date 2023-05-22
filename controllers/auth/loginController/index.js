@@ -1,4 +1,7 @@
-const loginController = async (req, res, router, bcrypt) => {
+const jsonServer = require("json-server");
+const router = jsonServer.router("data/db.json");
+const bcrypt = require("bcryptjs");
+const loginController = async (req, res) => {
   const { username, password } = req.body;
   const user = router.db.get("users").find({ username }).value();
   if (!user) {

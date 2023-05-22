@@ -1,4 +1,7 @@
-const createController = async (req, res, router, uuidv4) => {
+const jsonServer = require("json-server");
+const router = jsonServer.router("data/db.json");
+const { v4: uuidv4 } = require("uuid");
+const createController = async (req, res) => {
   const { items } = req.body;
   const user_id = req.headers.user;
   const orders = [];
@@ -33,7 +36,9 @@ const createController = async (req, res, router, uuidv4) => {
     orders.push(order);
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ message: "Sản phẩm không tồn tại hoặc không đủ số lượng!" });
+    return res
+      .status(500)
+      .json({ message: "Sản phẩm không tồn tại hoặc không đủ số lượng!" });
   }
   res.json({ message: "Đặt hàng thành công!", orders });
 };

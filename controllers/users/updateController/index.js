@@ -1,4 +1,6 @@
-const updateController = (req, res, router) => {
+const jsonServer = require("json-server");
+const router = jsonServer.router("data/db.json");
+const updateController = (req, res) => {
   const { id } = req.params;
   const { name, address, phone, email } = req.body;
   const user = router.db.get("users").find({ id }).value();

@@ -1,4 +1,8 @@
-const registerController = async (req, res, router, uuidv4, bcrypt) => {
+const jsonServer = require("json-server");
+const router = jsonServer.router("data/db.json");
+const bcrypt = require("bcryptjs");
+const { v4: uuidv4 } = require("uuid");
+const registerController = async (req, res) => {
   const { username, password, name, email, address, phone } = req.body;
   const existingUser = await router.db.get("users").find({ username }).value();
   if (existingUser) {

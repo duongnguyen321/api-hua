@@ -1,4 +1,8 @@
-const admin = async (req, res, router, bcrypt, uuidv4) => {
+const jsonServer = require("json-server");
+const router = jsonServer.router("data/db.json");
+const bcrypt = require("bcryptjs");
+const { v4: uuidv4 } = require("uuid");
+const admin = async (req, res) => {
   const { username, password, role, address, phone, name, email } = req.body;
   const currentUser = req.headers.user;
   const passswordCurrentUser = req.headers.password;

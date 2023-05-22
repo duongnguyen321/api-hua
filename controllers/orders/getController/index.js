@@ -1,4 +1,6 @@
-const getController = (req, res, router) => {
+const jsonServer = require("json-server");
+const router = jsonServer.router("data/db.json");
+const getController = (req, res ) => {
   const user_id = req.query.user_id;
   const order_id = req.query.order_id;
   const orders = router.db.get("orders").value();

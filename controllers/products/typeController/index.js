@@ -1,4 +1,7 @@
-const typeController = (req, res, _, router) => {
+const _ = require("lodash");
+const jsonServer = require("json-server");
+const router = jsonServer.router("data/db.json");
+const typeController = (req, res) => {
   const { type } = req.params;
   const { minPrice, maxPrice } = req.query;
   const data = _(router.db.get("products"))

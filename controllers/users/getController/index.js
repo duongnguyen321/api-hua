@@ -1,4 +1,6 @@
-const getController = (req, res,router) => {
+const jsonServer = require("json-server");
+const router = jsonServer.router("data/db.json");
+const getController = (req, res) => {
   const { id } = req.params;
   const user = router.db.get("users").find({ id }).omit(["password"]).value();
   if (!user) {

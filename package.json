@@ -2,9 +2,10 @@
   "name": "apihua",
   "version": "1.0.0",
   "description": "API HUA shop - NodeJS",
-  "main": "api/server.js",
+  "main": "server",
   "scripts": {
-    "start": "node api/server.js"
+    "start": "node server",
+    "push": "node script"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
