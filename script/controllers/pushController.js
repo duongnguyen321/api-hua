@@ -38,7 +38,7 @@ const deployHeroku = () => {
   console.log("Deploying to Heroku...");
 
   return new Promise((resolve, reject) => {
-    const herokuChild = exec("git push heroku master");
+    const herokuChild = exec("git push heroku main");
 
     herokuChild.stdout.on("data", (data) => {
       console.log(data);
