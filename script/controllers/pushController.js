@@ -6,7 +6,7 @@ const pushGit = (text) => {
 
   return new Promise((resolve, reject) => {
     const pushChild = exec(
-      `git add . && git commit -m "${text}" && git push heroku master`
+      `git add . && git commit -m "${text}" && git push heroku main`
     );
 
     pushChild.stdout.on("data", (data) => {
