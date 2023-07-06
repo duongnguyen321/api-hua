@@ -58,7 +58,7 @@ const generateAccessToken = async (user) => {
 const generateResetToken = async (user) => {
   const resetTokenSecret = process.env.RESET_TOKEN_SECRET;
   const resetToken = jwt.sign({ userId: user.id }, resetTokenSecret, {
-    expiresIn: "1w",
+    expiresIn: "60 days",
   });
   return resetToken;
 };

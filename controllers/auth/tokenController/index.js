@@ -2,10 +2,49 @@ const jsonServer = require("json-server");
 const router = jsonServer.router("data/db.json");
 const jwt = require("jsonwebtoken");
 
-const autoLoginController = async (req, res) => {
-  const accessTokenBearer = req.headers.authorization;
+const generateAccessToken = (userId) => {
+  const accessToken = jwt.sign({ userId }, process.env.ACCESS_TOKEN_SECRET, {
+    expiresIn: "1w",
+  });
+  return accessToken;
+};
 
-  const accessToken = accessTokenBearer.split(" ")[1];
+const resetTokenMiddleware = async (req, res, next) => {
+  const userId = req.body.userId;
+  const resetToken = req.headers.authorization.split(" ")[1];
+
+  if (!resetToken) {
+    return res
+      .status(401)
+      .json({ message: "Reset token không được cung cấp!" });
+  }
+
+  try {
+    const resetTokenSecret = process.env.RESET_TOKEN_SECRET;
+    const decodedToken = jwt.verify(resetToken, resetTokenSecret);
+    const { userId: userIdToken } = decodedToken;
+
+    if (userId !== userIdToken) {
+      return res.status(401).json({ message: "Reset token không hợp lệ!" });
+    }
+
+    const user = router.db.get("users").find({ id: userId }).value();
+
+    if (!user) {
+      return res.status(401).json({ message: "Người dùng không tồn tại!" });
+    }
+
+    const accessToken = generateAccessToken(user.id);
+
+    return res.json({ accessToken });
+  } catch (err) {
+    return res.status(401).json({ message: "Reset token không hợp lệ!" });
+  }
+};
+
+const autoLoginController = async (req, res) => {
+  const userId = req.body.userId;
+  const accessToken = req.headers.authorization.split(" ")[1];
 
   if (!accessToken) {
     return res
@@ -18,7 +57,11 @@ const autoLoginController = async (req, res) => {
       accessToken,
       process.env.ACCESS_TOKEN_SECRET
     );
-    const { userId } = decodedToken;
+    const { userId: userIdToken } = decodedToken;
+
+    if (userId !== userIdToken) {
+      return res.status(401).json({ message: "Access token không hợp lệ!" });
+    }
 
     const user = router.db.get("users").find({ id: userId }).value();
 
@@ -34,4 +77,7 @@ const autoLoginController = async (req, res) => {
   }
 };
 
-module.exports = autoLoginController;
+module.exports = {
+  autoLoginController,
+  resetTokenMiddleware,
+};
