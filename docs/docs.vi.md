@@ -77,13 +77,40 @@
 
   - Mô tả: Xác thực người dùng và tạo mã thông báo cho các cuộc gọi API tiếp theo.
   - Thân Yêu Cầu: Đối tượng chứa `username` và `password` của người dùng.
-  - Kết quả: Một đối tượng với thông báo "Đăng nhập thành công!" và thông tin người dùng đã được xác thực.
+  - Kết quả: Một đối tượng với thông báo "Đăng nhập thành công!" và thông tin người dùng đã được xác thực, bao gồm mã thông báo truy cập.
 
 - **POST /register**
 
   - Mô tả: Tạo tài khoản người dùng mới.
   - Thân Yêu Cầu: Đối tượng chứa thông tin người dùng mới (`username`, `password`, `name`, `email`, `address`, `phone`).
-  - Kết quả: Một đối tượng với thông báo "Đăng ký tài khoản thành công!" và người dùng đã được tạo.
+  - Kết quả: Một đối tượng với thông báo "Đăng ký tài khoản thành công!" và người dùng đã được tạo, bao gồm mã thông báo truy cập và mã thông báo đặt lại.
+
+- **GET /auth-token**
+
+  Mô tả: Tự động đăng nhập người dùng bằng **Authorization: Bearer AccessToken**.
+
+  Tham số:
+
+  - Body:
+    `userId` (string): ID của người dùng.
+  - Header: authorization Bearer
+    `accessToken` (string): Mã thông báo truy cập của người dùng.
+
+  - Kết quả: Một đối tượng với thông báo "Đăng nhập tự động thành công!" và thông tin người dùng đã được xác thực.
+
+- **GET /reset-token**
+
+  Mô tả: Tạo lại mã thông báo truy cập mới cho người dùng.
+
+  Tham số:
+
+  - Body:
+    `userId` (string): ID của người dùng.
+
+  - Header: authorization Bearer
+    `resetToken` (string): Mã thông báo đặt lại của người dùng.
+
+  - Kết quả: Một đối tượng với thông báo "Tạo lại mã thông báo thành công!" và mã thông báo truy cập mới.
 
 3. Xác thực:
 

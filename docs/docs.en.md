@@ -77,13 +77,40 @@ This is a REST API server built using json-server library. It provides endpoints
 
   - Description: Authenticate a user and generate a token for further API calls.
   - Request Body: An object containing the user's `username` and `password`.
-  - Returns: An object with the message "Đăng nhập thành công!" and the authenticated user's information.
+  - Returns: An object with the message “login successful!” and authenticated user information, including access token.
 
 - **POST /register**
 
   - Description: Create a new user account.
   - Request Body: An object containing the new user's information (`username`, `password`, `name`, `email`, `address`, `phone`).
-  - Returns: An object with the message "Đăng ký tài khoản thành công!" and the created user.
+  - Returns: An object with the message “account registration successful!” and the created user, including access token and reset token.
+
+- **GET /auth-token**
+
+  Description: Automatically log in the user using **Authorization: Bearer AccessToken**.
+
+  Parameters:
+
+  - Body:
+    `userId` (string): The user’s ID.
+  - Header: authorization Bearer
+    `accessToken` (string): The user’s access token.
+
+  - Result: An object with the message “Automatic login successful!” and authenticated user information.
+
+- **GET /reset-token**
+
+  Description: Generate a new access token for the user.
+
+  Parameters:
+
+  - Body:
+    `userId` (string): The user’s ID.
+
+  - Header: authorization Bearer
+    `resetToken` (string): The user’s reset token.
+
+  - Result: An object with the message “Token reset successful!” and the new access token.
 
 3. Authorization:
 
