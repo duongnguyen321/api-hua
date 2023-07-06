@@ -32,39 +32,9 @@ const pushGit = (text) => {
   });
 };
 
-const deployHeroku = () => {
-  console.log("Deploying to Heroku...");
-
-  return new Promise((resolve, reject) => {
-    const herokuChild = exec("git push heroku main");
-
-    herokuChild.stdout.on("data", (data) => {
-      console.log(data);
-    });
-
-    herokuChild.stderr.on("data", (data) => {
-      console.error(data);
-    });
-
-    herokuChild.on("error", (error) => {
-      console.error(error);
-      reject(error);
-    });
-
-    herokuChild.on("close", (code) => {
-      if (code === 0) {
-        logSuccess("Heroku deployment completed");
-        resolve();
-      } else {
-        logError(`Heroku deployment failed with code ${code}`);
-        reject(`Heroku deployment failed with code ${code}`);
-      }
-    });
-  });
-};
 
 const pushAndDeploy = (text) => {
-  return pushGit(text).then(() => deployHeroku());
+  return pushGit(text)
 };
 
 module.exports = {
