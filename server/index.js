@@ -2,6 +2,8 @@ const jsonServer = require("json-server");
 const server = jsonServer.create();
 const bodyParser = require("json-server").bodyParser;
 const port = process.env.PORT || 3001;
+require("dotenv").config();
+
 
 // Import the routes
 const productsRouter = require("../routes/products");
