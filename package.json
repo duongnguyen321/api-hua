@@ -4,8 +4,7 @@
   "description": "API HUA shop - NodeJS",
   "main": "server",
   "scripts": {
-    "start": "node server",
-    "dev": "nodemon server",
+    "start": "nodemon server",
     "push": "node script"
   },
   "dependencies": {

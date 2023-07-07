@@ -1,6 +1,11 @@
-const productsTypeController = require("./typeController");
-const productsIdController = require("./idController");
+const { getByType, getById } = require("./getController");
+const addProductController = require("./addController");
+const updateProductController = require("./updateController");
+const deleteProductController = require("./deleteController");
 module.exports = {
-  productsTypeController,
-  productsIdController,
+  getByType,
+  getById,
+  addProductController,
+  updateProductController,
+  deleteProductController,
 };
