@@ -1,7 +1,7 @@
 const _ = require("lodash");
 const jsonServer = require("json-server");
 const router = jsonServer.router("data/db.json");
-const typeController = (req, res) => {
+const getByType = (req, res) => {
   const { type } = req.params;
   const { minPrice, maxPrice } = req.query;
   const data = _(router.db.get("products"))
@@ -11,4 +11,4 @@ const typeController = (req, res) => {
     .value();
   res.json(data);
 };
-module.exports = typeController;
+module.exports = getByType;

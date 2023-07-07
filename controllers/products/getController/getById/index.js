@@ -1,6 +1,6 @@
 const jsonServer = require("json-server");
 const router = jsonServer.router("data/db.json");
-const idController = (req, res) => {
+const getById = (req, res) => {
   const { id } = req.params;
   const product = router.db.get("products").find({ id }).value();
   if (!product) {
@@ -9,4 +9,4 @@ const idController = (req, res) => {
     res.json(product);
   }
 };
-module.exports = idController;
+module.exports = getById;
