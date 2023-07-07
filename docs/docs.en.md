@@ -37,6 +37,34 @@ This is a REST API server built using json-server library. It provides endpoints
     - `id` (string): The ID of the product.
   - Returns: The product object with the specified ID.
 
+- **POST /products**
+
+  - Description: Create a new product.
+  - Headers:
+    `userid` (string): The ID of the user creating the product, must be an **admin**.
+  - Body: An object containing the information of the new product (`name: String`, `type: String`, `category: String`, `quantity: Number`, `price: Number`, `images: File`).
+  - Response: An object with the message "New product added successfully!" and the created product.
+
+- **PUT /products**
+
+  - Description: Update product information.
+  - Header:
+    `userid` (string): The ID of the user updating the product, must be an **admin**.
+  - Body: An object containing the information to update the product (`name: String`, `type: String`, `category: String`, `quantity: Number`, `price: Number`, `images: File`).
+
+    - It can include some or all of the product attributes.
+
+  - Response: An object with the message "Product updated successfully!" and the updated product.
+
+- **DELETE /products**
+
+  - Description: Delete a product by its ID.
+  - Header:
+    `userid` (string): The ID of the user deleting the product, must be an **admin**.
+  - Headers:
+    - `id` (string): The ID of the product.
+  - Response: An object with the message "Product deleted successfully!" and the deleted product.
+
 - **GET /orders**
 
   - Description: Get orders with optional filtering by user_id or order_id.
