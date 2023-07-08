@@ -11,11 +11,11 @@ const generateAccessToken = async (user) => {
 };
 
 const generateResetToken = async (user) => {
-  const resetTokenSecret = process.env.RESET_TOKEN_SECRET;
-  const resetToken = jwt.sign({ userid: user.id }, resetTokenSecret, {
+  const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET;
+  const refreshToken = jwt.sign({ userid: user.id }, refreshTokenSecret, {
     expiresIn: "60 days",
   });
-  return resetToken;
+  return refreshToken;
 };
 
 module.exports = {

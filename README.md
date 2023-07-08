@@ -113,7 +113,7 @@ This is a REST API server built using json-server library. It provides endpoints
 
   - Description: Create a new user account.
   - Request Body: An object containing the new user's information (`username`, `password`, `name`, `email`, `address`, `phone`).
-  - Returns: An object with the message “account registration successful!” and the created user, including access token and reset token.
+  - Returns: An object with the message “account registration successful!” and the created user, including access token and refresh token.
 
 - **POST /auth-token**
 
@@ -128,7 +128,7 @@ This is a REST API server built using json-server library. It provides endpoints
 
   - Result: An object with the message “Automatic login successful!” and authenticated user information.
 
-- **POST /reset-token**
+- **POST /refresh-token**
 
   Description: Generate a new access token for the user.
 
@@ -138,9 +138,9 @@ This is a REST API server built using json-server library. It provides endpoints
     `userid` (string): The user’s ID.
 
   - Header: authorization Bearer
-    `resetToken` (string): The user’s reset token.
+    `refreshToken` (string): The user’s refresh token.
 
-  - Result: An object with the message “Token reset successful!” and the new access token.
+  - Result: An object with the message “Token refresh successful!” and the new access token.
 
 3. Authorization:
 
@@ -282,7 +282,7 @@ This is a REST API server built using json-server library. It provides endpoints
 
   - Kết quả: Một đối tượng với thông báo "Đăng nhập tự động thành công!" và thông tin người dùng đã được xác thực.
 
-- **POST /reset-token**
+- **POST /refresh-token**
 
   Mô tả: Tạo lại mã thông báo truy cập mới cho người dùng.
 
@@ -292,7 +292,7 @@ This is a REST API server built using json-server library. It provides endpoints
     `userid` (string): ID của người dùng.
 
   - Header: authorization Bearer
-    `resetToken` (string): Mã thông báo đặt lại của người dùng.
+    `refreshToken` (string): Mã thông báo đặt lại của người dùng.
 
   - Kết quả: Một đối tượng với thông báo "Tạo lại mã thông báo thành công!" và mã thông báo truy cập mới.
 

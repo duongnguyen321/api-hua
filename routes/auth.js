@@ -4,7 +4,7 @@ const {
   authLoginController,
   authRegisterController,
   autoLoginController,
-  resetTokenMiddleware,
+  refreshTokenMiddleware,
 } = require("../controllers/auth");
 
 router.post("/login", async (req, res) => {
@@ -18,8 +18,8 @@ router.post("/register", async (req, res) => {
 router.post("/auth-token", async (req, res) => {
   autoLoginController(req, res);
 });
-router.post("/reset-token", async (req, res) => {
-  resetTokenMiddleware(req, res);
+router.post("/refresh-token", async (req, res) => {
+  refreshTokenMiddleware(req, res);
 });
 
 module.exports = router;

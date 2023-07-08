@@ -28,7 +28,7 @@ const registerController = async (req, res) => {
   };
 
   const accessToken = await generateAccessToken(user);
-  const resetToken = await generateResetToken(user);
+  const refreshToken = await generateResetToken(user);
 
   try {
     await router.db.get("users").push(user).write();
@@ -37,7 +37,7 @@ const registerController = async (req, res) => {
       message: "Đăng ký tài khoản thành công!",
       user: userInfo,
       accessToken,
-      resetToken,
+      refreshToken,
     });
   } catch (err) {
     console.error(err);

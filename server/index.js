@@ -38,7 +38,7 @@ server.use((req, res, next) => {
     req.path === "/products" ||
     req.path === "/auth/register" ||
     req.path === "/auth/login" ||
-    req.path === "/auth/reset-token" ||
+    req.path === "/auth/refresh-token" ||
     req.path === "/api" ||
     // accept all requests for public files
     req.path.startsWith("/assets") ||

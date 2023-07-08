@@ -3,12 +3,12 @@ const router = jsonServer.router("data/db.json");
 const jwt = require("jsonwebtoken");
 const { generateAccessToken } = require("../helper");
 
-const resetTokenMiddleware = async (req, res, next) => {
-  const resetToken = req.headers.authorization.split(" ")[1];
+const refreshTokenMiddleware = async (req, res, next) => {
+  const refreshToken = req.headers.authorization.split(" ")[1];
   const prevAccessToken = req.body.accessToken;
   const userid = req.body.userid;
 
-  if (!resetToken) {
+  if (!refreshToken) {
     return res
       .status(401)
       .json({ message: "Reset token không được cung cấp!" });
@@ -16,8 +16,8 @@ const resetTokenMiddleware = async (req, res, next) => {
 
   try {
     const decodedResetToken = jwt.verify(
-      resetToken,
-      process.env.RESET_TOKEN_SECRET
+      refreshToken,
+      process.env.REFRESH_TOKEN_SECRET
     );
     const decodedPrevAccessToken = jwt.decode(
       prevAccessToken,
@@ -85,5 +85,5 @@ const autoLoginController = async (req, res) => {
 
 module.exports = {
   autoLoginController,
-  resetTokenMiddleware,
+  refreshTokenMiddleware,
 };

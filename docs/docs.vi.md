@@ -126,7 +126,7 @@
 
   - Kết quả: Một đối tượng với thông báo "Đăng nhập tự động thành công!" và thông tin người dùng đã được xác thực.
 
-- **POST /reset-token**
+- **POST /refresh-token**
 
   Mô tả: Tạo lại mã thông báo truy cập mới cho người dùng.
 
@@ -136,7 +136,7 @@
     `userid` (string): ID của người dùng.
 
   - Header: authorization Bearer
-    `resetToken` (string): Mã thông báo đặt lại của người dùng.
+    `refreshToken` (string): Mã thông báo đặt lại của người dùng.
 
   - Kết quả: Một đối tượng với thông báo "Tạo lại mã thông báo thành công!" và mã thông báo truy cập mới.
 

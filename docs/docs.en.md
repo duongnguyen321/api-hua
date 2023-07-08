@@ -111,7 +111,7 @@ This is a REST API server built using json-server library. It provides endpoints
 
   - Description: Create a new user account.
   - Request Body: An object containing the new user's information (`username`, `password`, `name`, `email`, `address`, `phone`).
-  - Returns: An object with the message “account registration successful!” and the created user, including access token and reset token.
+  - Returns: An object with the message “account registration successful!” and the created user, including access token and refresh token.
 
 - **POST /auth-token**
 
@@ -126,7 +126,7 @@ This is a REST API server built using json-server library. It provides endpoints
 
   - Result: An object with the message “Automatic login successful!” and authenticated user information.
 
-- **POST /reset-token**
+- **POST /refresh-token**
 
   Description: Generate a new access token for the user.
 
@@ -136,9 +136,9 @@ This is a REST API server built using json-server library. It provides endpoints
     `userid` (string): The user’s ID.
 
   - Header: authorization Bearer
-    `resetToken` (string): The user’s reset token.
+    `refreshToken` (string): The user’s refresh token.
 
-  - Result: An object with the message “Token reset successful!” and the new access token.
+  - Result: An object with the message “Token refresh successful!” and the new access token.
 
 3. Authorization:
 
