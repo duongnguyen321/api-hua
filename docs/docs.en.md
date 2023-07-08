@@ -21,16 +21,16 @@ This is a REST API server built using json-server library. It provides endpoints
 
 2. API Endpoints:
 
-- **GET /products/type/:type**
+- **GET /products?type=:type**
 
-  - Description: Get products by type with optional filtering by minPrice and maxPrice.
+  - Description: Get products by type with optional filtering by minprice and maxprice.
   - Parameters:
     - `type` (string): The type of products to retrieve. Use "all" to get all products.
-    - `minPrice` (optional, number): The minimum price of products to retrieve.
-    - `maxPrice` (optional, number): The maximum price of products to retrieve.
+    - `minprice` (optional, number): The minimum price of products to retrieve.
+    - `maxprice` (optional, number): The maximum price of products to retrieve.
   - Returns: An array of products matching the specified criteria.
 
-- **GET /products/:id**
+- **GET /products?id=:id**
 
   - Description: Get a product by its ID.
   - Parameters:
@@ -113,27 +113,27 @@ This is a REST API server built using json-server library. It provides endpoints
   - Request Body: An object containing the new user's information (`username`, `password`, `name`, `email`, `address`, `phone`).
   - Returns: An object with the message “account registration successful!” and the created user, including access token and reset token.
 
-- **GET /auth-token**
+- **POST /auth-token**
 
   Description: Automatically log in the user using **Authorization: Bearer AccessToken**.
 
   Parameters:
 
   - Body:
-    `userId` (string): The user’s ID.
+    `userid` (string): The user’s ID.
   - Header: authorization Bearer
     `accessToken` (string): The user’s access token.
 
   - Result: An object with the message “Automatic login successful!” and authenticated user information.
 
-- **GET /reset-token**
+- **POST /reset-token**
 
   Description: Generate a new access token for the user.
 
   Parameters:
 
   - Body:
-    `userId` (string): The user’s ID.
+    `userid` (string): The user’s ID.
 
   - Header: authorization Bearer
     `resetToken` (string): The user’s reset token.

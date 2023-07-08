@@ -4,9 +4,9 @@ const jwt = require("jsonwebtoken");
 const { generateAccessToken } = require("../helper");
 
 const resetTokenMiddleware = async (req, res, next) => {
-  const userId = req.body.userId;
   const resetToken = req.headers.authorization.split(" ")[1];
   const prevAccessToken = req.body.accessToken;
+  const userid = req.body.userid;
 
   if (!resetToken) {
     return res
@@ -19,18 +19,18 @@ const resetTokenMiddleware = async (req, res, next) => {
       resetToken,
       process.env.RESET_TOKEN_SECRET
     );
-    const decodedPrevAccessToken = jwt.verify(
+    const decodedPrevAccessToken = jwt.decode(
       prevAccessToken,
       process.env.ACCESS_TOKEN_SECRET
     );
-    const { userId: userIdResetToken } = decodedResetToken;
-    const { userId: userIdPrevAccessToken } = decodedPrevAccessToken;
-    if (userId !== userIdResetToken || userId !== userIdPrevAccessToken) {
+    const { userid: useridResetToken } = decodedResetToken;
+    const { userid: useridPrevAccessToken } = decodedPrevAccessToken;
+    if (userid !== useridResetToken || userid !== useridPrevAccessToken) {
       return res
         .status(401)
         .json({ message: "Reset token hoặc Access token không hợp lệ!" });
     }
-    const user = router.db.get("users").find({ id: userId }).value();
+    const user = router.db.get("users").find({ id: userid }).value();
     if (!user) {
       return res
         .status(401)
@@ -47,7 +47,7 @@ const resetTokenMiddleware = async (req, res, next) => {
 };
 
 const autoLoginController = async (req, res) => {
-  const userId = req.body.userId;
+  const userid = req.body.userid;
   const accessToken = req.headers.authorization.split(" ")[1];
 
   if (!accessToken) {
@@ -61,13 +61,13 @@ const autoLoginController = async (req, res) => {
       accessToken,
       process.env.ACCESS_TOKEN_SECRET
     );
-    const { userId: userIdToken } = decodedToken;
+    const { userid: useridToken } = decodedToken;
 
-    if (userId !== userIdToken) {
+    if (userid !== useridToken) {
       return res.status(401).json({ message: "Access token không hợp lệ!" });
     }
 
-    const user = router.db.get("users").find({ id: userId }).value();
+    const user = router.db.get("users").find({ id: userid }).value();
 
     if (!user) {
       return res.status(401).json({ message: "Người dùng không tồn tại!" });

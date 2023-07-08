@@ -18,11 +18,11 @@ const getController = (req, res) => {
       accessToken,
       process.env.ACCESS_TOKEN_SECRET
     );
-    const { userId } = decodedToken;
-    if (userId !== id) {
+    const { userid } = decodedToken;
+    if (userid !== id) {
       return res.status(401).json({ message: "Access token không hợp lệ!" });
     }
-    const user = router.db.get("users").find({ id: userId }).value();
+    const user = router.db.get("users").find({ id: userid }).value();
     if (!user) {
       return res.status(401).json({ message: "Người dùng không tồn tại!" });
     }

@@ -21,16 +21,16 @@
 
 2. Điểm cuối API:
 
-- **GET /products/type/:type**
+- **GET /products?type=:type**
 
-  - Mô tả: Lấy các sản phẩm theo loại với khả năng lọc tùy chọn bằng minPrice và maxPrice.
+  - Mô tả: Lấy các sản phẩm theo loại với khả năng lọc tùy chọn bằng minprice và maxprice.
   - Tham số:
     - `type` (string): Loại sản phẩm cần lấy. Sử dụng "all" để lấy tất cả sản phẩm.
-    - `minPrice` (tùy chọn, số): Giá tối thiểu của sản phẩm cần lấy.
-    - `maxPrice` (tùy chọn, số): Giá tối đa của sản phẩm cần lấy.
+    - `minprice` (tùy chọn, số): Giá tối thiểu của sản phẩm cần lấy.
+    - `maxprice` (tùy chọn, số): Giá tối đa của sản phẩm cần lấy.
   - Kết quả: Một mảng các sản phẩm phù hợp với các tiêu chí đã chỉ định.
 
-- **GET /products/:id**
+- **GET /products?id=:id**
 
   - Mô tả: Lấy một sản phẩm bằng ID của nó.
   - Tham số:
@@ -113,27 +113,27 @@
   - Body: Đối tượng chứa thông tin người dùng mới (`username`, `password`, `name`, `email`, `address`, `phone`).
   - Kết quả: Một đối tượng với thông báo "Đăng ký tài khoản thành công!" và người dùng đã được tạo, bao gồm mã thông báo truy cập và mã thông báo đặt lại.
 
-- **GET /auth-token**
+- **POST /auth-token**
 
   Mô tả: Tự động đăng nhập người dùng bằng **Authorization: Bearer AccessToken**.
 
   Tham số:
 
   - Body:
-    `userId` (string): ID của người dùng.
+    `userid` (string): ID của người dùng.
   - Header: authorization Bearer
     `accessToken` (string): Mã thông báo truy cập của người dùng.
 
   - Kết quả: Một đối tượng với thông báo "Đăng nhập tự động thành công!" và thông tin người dùng đã được xác thực.
 
-- **GET /reset-token**
+- **POST /reset-token**
 
   Mô tả: Tạo lại mã thông báo truy cập mới cho người dùng.
 
   Tham số:
 
   - Body:
-    `userId` (string): ID của người dùng.
+    `userid` (string): ID của người dùng.
 
   - Header: authorization Bearer
     `resetToken` (string): Mã thông báo đặt lại của người dùng.

@@ -25,11 +25,11 @@ This is a REST API server built using json-server library. It provides endpoints
 
 - **GET /products/type/:type**
 
-  - Description: Get products by type with optional filtering by minPrice and maxPrice.
+  - Description: Get products by type with optional filtering by minprice and maxprice.
   - Parameters:
     - `type` (string): The type of products to retrieve. Use "all" to get all products.
-    - `minPrice` (optional, number): The minimum price of products to retrieve.
-    - `maxPrice` (optional, number): The maximum price of products to retrieve.
+    - `minprice` (optional, number): The minimum price of products to retrieve.
+    - `maxprice` (optional, number): The maximum price of products to retrieve.
   - Returns: An array of products matching the specified criteria.
 
 - **GET /products/:id**
@@ -122,7 +122,7 @@ This is a REST API server built using json-server library. It provides endpoints
   Parameters:
 
   - Body:
-    `userId` (string): The user’s ID.
+    `userid` (string): The user’s ID.
   - Header: authorization Bearer
     `accessToken` (string): The user’s access token.
 
@@ -135,7 +135,7 @@ This is a REST API server built using json-server library. It provides endpoints
   Parameters:
 
   - Body:
-    `userId` (string): The user’s ID.
+    `userid` (string): The user’s ID.
 
   - Header: authorization Bearer
     `resetToken` (string): The user’s reset token.
@@ -179,11 +179,11 @@ This is a REST API server built using json-server library. It provides endpoints
 
 - **GET /products/type/:type**
 
-  - Mô tả: Lấy các sản phẩm theo loại với khả năng lọc tùy chọn bằng minPrice và maxPrice.
+  - Mô tả: Lấy các sản phẩm theo loại với khả năng lọc tùy chọn bằng minprice và maxprice.
   - Tham số:
     - `type` (string): Loại sản phẩm cần lấy. Sử dụng "all" để lấy tất cả sản phẩm.
-    - `minPrice` (tùy chọn, số): Giá tối thiểu của sản phẩm cần lấy.
-    - `maxPrice` (tùy chọn, số): Giá tối đa của sản phẩm cần lấy.
+    - `minprice` (tùy chọn, số): Giá tối thiểu của sản phẩm cần lấy.
+    - `maxprice` (tùy chọn, số): Giá tối đa của sản phẩm cần lấy.
   - Kết quả: Một mảng các sản phẩm phù hợp với các tiêu chí đã chỉ định.
 
 - **GET /products/:id**
@@ -276,7 +276,7 @@ This is a REST API server built using json-server library. It provides endpoints
   Tham số:
 
   - Body:
-    `userId` (string): ID của người dùng.
+    `userid` (string): ID của người dùng.
   - Header: authorization Bearer
     `accessToken` (string): Mã thông báo truy cập của người dùng.
 
@@ -289,7 +289,7 @@ This is a REST API server built using json-server library. It provides endpoints
   Tham số:
 
   - Body:
-    `userId` (string): ID của người dùng.
+    `userid` (string): ID của người dùng.
 
   - Header: authorization Bearer
     `resetToken` (string): Mã thông báo đặt lại của người dùng.

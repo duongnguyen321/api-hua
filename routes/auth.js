@@ -15,10 +15,10 @@ router.post("/register", async (req, res) => {
   authRegisterController(req, res);
 });
 
-router.get("/auth-token", async (req, res) => {
+router.post("/auth-token", async (req, res) => {
   autoLoginController(req, res);
 });
-router.get("/reset-token", async (req, res) => {
+router.post("/reset-token", async (req, res) => {
   resetTokenMiddleware(req, res);
 });
 

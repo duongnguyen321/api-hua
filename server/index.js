@@ -64,8 +64,8 @@ server.use((req, res, next) => {
       accessToken,
       process.env.ACCESS_TOKEN_SECRET
     );
-    const { exp, userId } = decodedToken;
-    if (userId !== userid) {
+    const { exp, userid } = decodedToken;
+    if (userid !== userid) {
       return res.status(401).json({ message: "Access token không hợp lệ!" });
     }
     if (Date.now() >= exp * 1000) {
