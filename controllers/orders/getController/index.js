@@ -1,22 +1,23 @@
 const jsonServer = require("json-server");
 const router = jsonServer.router("data/db.json");
-const getController = (req, res ) => {
-  const user_id = req.query.user_id;
-  const order_id = req.query.order_id;
+
+const getController = (req, res) => {
+  const userid = req.query.userid;
+  const orderid = req.query.orderid;
   const orders = router.db.get("orders").value();
   let products = [];
   if (router.db.has("products").value()) {
     products = router.db.get("products").value();
   }
   let result = {};
-  if (user_id) {
-    const userOrders = orders.filter((order) => order.user_id === user_id);
+  if (userid) {
+    const userOrders = orders.filter((order) => order.userid === userid);
     result = {
       ...result,
       orders: userOrders.map((order) => {
-        const user = router.db.get("users").find({ id: order.user_id }).value();
-        const orderProducts = order.product_id.map((product_id, index) => {
-          const product = products.find((product) => product.id === product_id);
+        const user = router.db.get("users").find({ id: order.userid }).value();
+        const orderProducts = order.productid.map((productid, index) => {
+          const product = products.find((product) => product.id === productid);
           return (
             {
               ...product,
@@ -37,13 +38,13 @@ const getController = (req, res ) => {
         };
       }),
     };
-  } else if (order_id) {
-    const order = orders.find((order) => order.id === order_id);
+  } else if (orderid) {
+    const order = orders.find((order) => order.id === orderid);
     if (!order) {
       return res.status(404).json({ message: "Không tìm thấy đơn hàng" });
     }
-    const orderProducts = order.product_id.map((product_id, index) => {
-      const product = products.find((product) => product.id === product_id);
+    const orderProducts = order.productid.map((productid, index) => {
+      const product = products.find((product) => product.id === productid);
       return (
         {
           ...product,
@@ -51,7 +52,7 @@ const getController = (req, res ) => {
         } || null
       );
     });
-    const user = router.db.get("users").find({ id: order.user_id }).value();
+    const user = router.db.get("users").find({ id: order.userid }).value();
     result = {
       ...result,
       orders: [
@@ -70,9 +71,9 @@ const getController = (req, res ) => {
     };
   } else {
     const allOrders = orders.map((order) => {
-      const user = router.db.get("users").find({ id: order.user_id }).value();
-      const orderProducts = order.product_id.map((product_id, index) => {
-        const product = products.find((product) => product.id === product_id);
+      const user = router.db.get("users").find({ id: order.userid }).value();
+      const orderProducts = order.productid.map((productid, index) => {
+        const product = products.find((product) => product.id === productid);
         return (
           {
             ...product,
@@ -89,6 +90,6 @@ const getController = (req, res ) => {
     });
     result = { ...result, orders: allOrders };
   }
-  res.json(result);
+  res.status(200).json(result);
 };
 module.exports = getController;

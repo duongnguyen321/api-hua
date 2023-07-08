@@ -1,13 +1,7 @@
 const jsonServer = require("json-server");
 const router = jsonServer.router("data/db.json");
 const jwt = require("jsonwebtoken");
-
-const generateAccessToken = (userId) => {
-  const accessToken = jwt.sign({ userId }, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: "1w",
-  });
-  return accessToken;
-};
+const { generateAccessToken } = require("../helper");
 
 const resetTokenMiddleware = async (req, res, next) => {
   const userId = req.body.userId;
@@ -81,7 +75,9 @@ const autoLoginController = async (req, res) => {
 
     const { password: userPassword, ...userInfo } = user;
 
-    res.json({ message: "Đăng nhập tự động thành công!", user: userInfo });
+    res
+      .status(200)
+      .json({ message: "Đăng nhập tự động thành công!", user: userInfo });
   } catch (err) {
     return res.status(401).json({ message: "Access token không hợp lệ!" });
   }

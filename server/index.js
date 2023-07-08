@@ -35,12 +35,21 @@ server.use(function (req, res, next) {
 server.use((req, res, next) => {
   const { authorization, userid } = req.headers;
   if (
+    req.path === "/products" ||
     req.path === "/auth/register" ||
     req.path === "/auth/login" ||
-    req.path === "/auth/reset-token"
+    req.path === "/auth/reset-token" ||
+    req.path === "/api" ||
+    // accept all requests for public files
+    req.path.startsWith("/assets") ||
+    req.path.startsWith("/images") ||
+    req.path.startsWith("/")
   ) {
     return next();
   }
+
+  // if req
+
   if (!authorization) {
     return res
       .status(401)

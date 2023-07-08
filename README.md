@@ -69,17 +69,17 @@ This is a REST API server built using json-server library. It provides endpoints
 
 - **GET /orders**
 
-  - Description: Get orders with optional filtering by user_id or order_id.
+  - Description: Get orders with optional filtering by userid or orderid.
   - Parameters:
-    - `user_id` (optional, string): Filter orders by user ID.
-    - `order_id` (optional, string): Get a specific order by its ID.
+    - `userid` (optional, string): Filter orders by user ID.
+    - `orderid` (optional, string): Get a specific order by its ID.
   - Returns: An object containing the orders matching the specified criteria.
 
 - **POST /orders/create**
 
   - Description: Create a new order.
   - Request Body:
-    - `items` (array): An array of objects representing the items to order. Each item should have `product_id` and `quantity` properties.
+    - `items` (array): An array of objects representing the items to order. Each item should have `productid` and `quantity` properties.
   - Returns: An object with the message "Đặt hàng thành công!" and the created order.
 
 - **GET /users/:id**
@@ -223,17 +223,17 @@ This is a REST API server built using json-server library. It provides endpoints
 
 - **GET /orders**
 
-  - Mô tả: Lấy đơn hàng với khả năng lọc tùy chọn bằng user_id hoặc order_id.
+  - Mô tả: Lấy đơn hàng với khả năng lọc tùy chọn bằng userid hoặc orderid.
   - Tham số:
-    - `user_id` (tùy chọn, string): Lọc đơn hàng theo ID người dùng.
-    - `order_id` (tùy chọn, string): Lấy một đơn hàng cụ thể bằng ID của nó.
+    - `userid` (tùy chọn, string): Lọc đơn hàng theo ID người dùng.
+    - `orderid` (tùy chọn, string): Lấy một đơn hàng cụ thể bằng ID của nó.
   - Kết quả: Một đối tượng chứa các đơn hàng phù hợp với các tiêu chí đã chỉ định.
 
 - **POST /orders/create**
 
   - Mô tả: Tạo đơn hàng mới.
   - Body Yêu Cầu:
-    - `items` (mảng): Một mảng các đối tượng đại diện cho các mục để đặt hàng. Mỗi mục phải có các thuộc tính `product_id` và `quantity`.
+    - `items` (mảng): Một mảng các đối tượng đại diện cho các mục để đặt hàng. Mỗi mục phải có các thuộc tính `productid` và `quantity`.
   - Kết quả: Một đối tượng với thông báo "Đặt hàng thành công!" và đơn hàng đã được tạo.
 
 - **GET /users/:id**

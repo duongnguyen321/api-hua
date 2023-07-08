@@ -1,11 +1,10 @@
 const jsonServer = require("json-server");
 const router = jsonServer.router("data/db.json");
-const { checkAdmin, uploadImages, checkId } = require("../helpers");
+const { uploadImages, checkId } = require("../helpers");
 
 const updateProductController = async (req, res) => {
-  const { userid } = req.headers;
+  const { id } = req.query;
   const {
-    id,
     name = "",
     type = "",
     category = "",
@@ -16,16 +15,6 @@ const updateProductController = async (req, res) => {
     sales = [],
   } = req.body;
   try {
-    if (!userid) {
-      return res
-        .status(401)
-        .json({ message: "Bạn không có quyền thực hiện hành động này!" });
-    }
-    if (!checkAdmin(userid)) {
-      return res
-        .status(401)
-        .json({ message: "Bạn không có quyền thực hiện hành động này!" });
-    }
     if (!checkId(id)) {
       return res.status(404).json({ message: "Không tìm thấy sản phẩm!" });
     }

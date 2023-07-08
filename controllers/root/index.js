@@ -20,7 +20,7 @@ const rootController = async (req, res) => {
       en: enContent,
     };
 
-    res.json(data);
+    res.status(200).json({ message: "Tải tài liệu thành công!", data });
   } catch (error) {
     res.status(500).send("Internal Server Error");
   }

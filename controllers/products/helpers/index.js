@@ -3,15 +3,6 @@ const path = require("path");
 const jsonServer = require("json-server");
 const router = jsonServer.router("data/db.json");
 
-const checkAdmin = async (id) => {
-  const admin = await router.db
-    .get("users")
-    .find({ id, role: "admin" })
-    .value();
-  if (admin) {
-    return true;
-  }
-};
 const removeAccents = (str) => {
   return str
     .normalize("NFD")
@@ -119,7 +110,6 @@ const checkId = (id) => {
 };
 
 module.exports = {
-  checkAdmin,
   removeAccents,
   generateProductId,
   checkValidProduct,

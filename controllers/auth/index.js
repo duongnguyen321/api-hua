@@ -4,6 +4,7 @@ const {
   autoLoginController,
   resetTokenMiddleware,
 } = require("./tokenController");
+
 module.exports = {
   authLoginController,
   authRegisterController,

@@ -15,7 +15,7 @@ const updateController = (req, res) => {
       email: email || user.email,
     };
     router.db.get("users").find({ id }).assign(updatedUser).write();
-    res.json({
+    res.status(200).json({
       message: "Cập nhật thông tin thành công!",
       user: updatedUser,
     });

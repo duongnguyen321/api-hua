@@ -1,26 +1,12 @@
-const fs = require("fs");
-const path = require("path");
 const jsonServer = require("json-server");
 const router = jsonServer.router("data/db.json");
 const {
-  checkAdmin,
   generateProductId,
   checkValidProduct,
   uploadImages,
 } = require("../helpers");
 
 const addProductController = async (req, res) => {
-  const { userid } = req.headers;
-  if (!userid) {
-    return res
-      .status(401)
-      .json({ message: "Bạn không có quyền thực hiện hành động này!" });
-  }
-  if (!checkAdmin(userid)) {
-    return res
-      .status(401)
-      .json({ message: "Bạn không có quyền thực hiện hành động này!" });
-  }
   const { name, type, category, quantity, price, images } = req.body;
   try {
     const { message, status, isValid } = checkValidProduct({
@@ -53,7 +39,9 @@ const addProductController = async (req, res) => {
       images: isUploadImages.images,
     };
     await router.db.get("products").push(newProduct).write();
-    res.json({ message: "Thêm sản phẩm mới thành công!", product: newProduct });
+    res
+      .status(200)
+      .json({ message: "Thêm sản phẩm mới thành công!", product: newProduct });
   } catch (err) {
     console.error(err);
     res.status(400).json({ message: "Đã xảy ra lỗi khi thêm sản phẩm!" });

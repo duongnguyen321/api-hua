@@ -67,17 +67,17 @@ This is a REST API server built using json-server library. It provides endpoints
 
 - **GET /orders**
 
-  - Description: Get orders with optional filtering by user_id or order_id.
+  - Description: Get orders with optional filtering by userid or orderid.
   - Parameters:
-    - `user_id` (optional, string): Filter orders by user ID.
-    - `order_id` (optional, string): Get a specific order by its ID.
+    - `userid` (optional, string): Filter orders by user ID.
+    - `orderid` (optional, string): Get a specific order by its ID.
   - Returns: An object containing the orders matching the specified criteria.
 
 - **POST /orders/create**
 
   - Description: Create a new order.
   - Request Body:
-    - `items` (array): An array of objects representing the items to order. Each item should have `product_id` and `quantity` properties.
+    - `items` (array): An array of objects representing the items to order. Each item should have `productid` and `quantity` properties.
   - Returns: An object with the message "Đặt hàng thành công!" and the created order.
 
 - **GET /users/:id**

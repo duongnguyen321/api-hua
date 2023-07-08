@@ -27,7 +27,7 @@ const getController = (req, res) => {
       return res.status(401).json({ message: "Người dùng không tồn tại!" });
     }
     const { password: userPassword, ...userInfo } = user;
-    res.json({ message: "Tìm thấy người dùng!", user: userInfo });
+    res.status(200).json({ message: "Tìm thấy người dùng!", user: userInfo });
   } catch (err) {
     return res.status(401).json({ message: "Access token không hợp lệ!" });
   }

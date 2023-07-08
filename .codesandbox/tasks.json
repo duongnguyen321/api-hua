@@ -11,7 +11,7 @@
   "tasks": {
     "start": {
       "name": "start",
-      "command": "npm run start",
+      "command": "npm start",
       "runAtStart": true,
       "preview": {
         "port": 3001

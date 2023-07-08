@@ -1,19 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const {
-  getById,
-  getByType,
+  getProductsController,
   addProductController,
   updateProductController,
   deleteProductController,
 } = require("../controllers/products");
 
-router.get("/type/:type", (req, res) => {
-  getByType(req, res);
-});
-
-router.get("/:id", (req, res) => {
-  getById(req, res);
+router.get("/", (req, res) => {
+  getProductsController(req, res);
 });
 
 router.post("/", (req, res) => {
