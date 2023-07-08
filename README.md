@@ -23,7 +23,7 @@ This is a REST API server built using json-server library. It provides endpoints
 
 2. API Endpoints:
 
-- **GET /products/type/:type**
+- **GET /products?type=:type**
 
   - Description: Get products by type with optional filtering by minprice and maxprice.
   - Parameters:
@@ -32,7 +32,7 @@ This is a REST API server built using json-server library. It provides endpoints
     - `maxprice` (optional, number): The maximum price of products to retrieve.
   - Returns: An array of products matching the specified criteria.
 
-- **GET /products/:id**
+- **GET /products?id=:id**
 
   - Description: Get a product by its ID.
   - Parameters:
@@ -115,7 +115,7 @@ This is a REST API server built using json-server library. It provides endpoints
   - Request Body: An object containing the new user's information (`username`, `password`, `name`, `email`, `address`, `phone`).
   - Returns: An object with the message “account registration successful!” and the created user, including access token and reset token.
 
-- **GET /auth-token**
+- **POST /auth-token**
 
   Description: Automatically log in the user using **Authorization: Bearer AccessToken**.
 
@@ -128,7 +128,7 @@ This is a REST API server built using json-server library. It provides endpoints
 
   - Result: An object with the message “Automatic login successful!” and authenticated user information.
 
-- **GET /reset-token**
+- **POST /reset-token**
 
   Description: Generate a new access token for the user.
 
@@ -177,7 +177,7 @@ This is a REST API server built using json-server library. It provides endpoints
 
 2. Điểm cuối API:
 
-- **GET /products/type/:type**
+- **GET /products?type=:type**
 
   - Mô tả: Lấy các sản phẩm theo loại với khả năng lọc tùy chọn bằng minprice và maxprice.
   - Tham số:
@@ -186,7 +186,7 @@ This is a REST API server built using json-server library. It provides endpoints
     - `maxprice` (tùy chọn, số): Giá tối đa của sản phẩm cần lấy.
   - Kết quả: Một mảng các sản phẩm phù hợp với các tiêu chí đã chỉ định.
 
-- **GET /products/:id**
+- **GET /products?id=:id**
 
   - Mô tả: Lấy một sản phẩm bằng ID của nó.
   - Tham số:
@@ -269,7 +269,7 @@ This is a REST API server built using json-server library. It provides endpoints
   - Body: Đối tượng chứa thông tin người dùng mới (`username`, `password`, `name`, `email`, `address`, `phone`).
   - Kết quả: Một đối tượng với thông báo "Đăng ký tài khoản thành công!" và người dùng đã được tạo, bao gồm mã thông báo truy cập và mã thông báo đặt lại.
 
-- **GET /auth-token**
+- **POST /auth-token**
 
   Mô tả: Tự động đăng nhập người dùng bằng **Authorization: Bearer AccessToken**.
 
@@ -282,7 +282,7 @@ This is a REST API server built using json-server library. It provides endpoints
 
   - Kết quả: Một đối tượng với thông báo "Đăng nhập tự động thành công!" và thông tin người dùng đã được xác thực.
 
-- **GET /reset-token**
+- **POST /reset-token**
 
   Mô tả: Tạo lại mã thông báo truy cập mới cho người dùng.
 
