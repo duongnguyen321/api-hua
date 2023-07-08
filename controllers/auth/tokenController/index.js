@@ -12,6 +12,7 @@ const generateAccessToken = (userId) => {
 const resetTokenMiddleware = async (req, res, next) => {
   const userId = req.body.userId;
   const resetToken = req.headers.authorization.split(" ")[1];
+  const prevAccessToken = req.body.accessToken;
 
   if (!resetToken) {
     return res
@@ -20,25 +21,34 @@ const resetTokenMiddleware = async (req, res, next) => {
   }
 
   try {
-    const resetTokenSecret = process.env.RESET_TOKEN_SECRET;
-    const decodedToken = jwt.verify(resetToken, resetTokenSecret);
-    const { userId: userIdToken } = decodedToken;
-
-    if (userId !== userIdToken) {
-      return res.status(401).json({ message: "Reset token không hợp lệ!" });
+    const decodedResetToken = jwt.verify(
+      resetToken,
+      process.env.RESET_TOKEN_SECRET
+    );
+    const decodedPrevAccessToken = jwt.verify(
+      prevAccessToken,
+      process.env.ACCESS_TOKEN_SECRET
+    );
+    const { userId: userIdResetToken } = decodedResetToken;
+    const { userId: userIdPrevAccessToken } = decodedPrevAccessToken;
+    if (userId !== userIdResetToken || userId !== userIdPrevAccessToken) {
+      return res
+        .status(401)
+        .json({ message: "Reset token hoặc Access token không hợp lệ!" });
     }
-
     const user = router.db.get("users").find({ id: userId }).value();
-
     if (!user) {
-      return res.status(401).json({ message: "Người dùng không tồn tại!" });
+      return res
+        .status(401)
+        .json({ message: "Reset token hoặc Access token không hợp lệ!" });
     }
-
     const accessToken = generateAccessToken(user.id);
-
-    return res.json({ accessToken });
+    req.body.accessToken = accessToken;
+    next();
   } catch (err) {
-    return res.status(401).json({ message: "Reset token không hợp lệ!" });
+    return res
+      .status(401)
+      .json({ message: "Reset token hoặc Access token không hợp lệ!" });
   }
 };
 
