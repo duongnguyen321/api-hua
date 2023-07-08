@@ -62,7 +62,7 @@ const updateProductController = async (req, res) => {
       if (images !== prevData.images) {
         newData.images = images;
       } else {
-        const isUploadImages = await uploadImages(images, name);
+        const isUploadImages = await uploadImages(images, id, name);
         if (!isUploadImages.success) {
           return res
             .status(400)

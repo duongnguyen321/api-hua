@@ -7,7 +7,7 @@
       "category": "laptop",
       "quantity": 100,
       "price": 1499,
-      "image": [
+      "images": [
         "/images/huawei-matebook-x-pro/huawei-matebook-x-pro.webp",
         "/images/huawei-matebook-x-pro/huawei-matebook-x-pro2.webp"
       ],
@@ -39,7 +39,7 @@
       "category": "phone",
       "price": 1299,
       "quantity": 150,
-      "image": [
+      "images": [
         "/images/huawei-p50-pro/huawei-p50-pro.webp",
         "/images/huawei-p50-pro/huawei-p50-pro2.webp"
       ],
@@ -67,7 +67,7 @@
       "category": "phone",
       "price": 599,
       "quantity": 986,
-      "image": [
+      "images": [
         "/images/huawei-p50-pocket/huawei-p50-pocket.webp",
         "/images/huawei-p50-pocket/huawei-p50-pocket2.webp"
       ],
@@ -95,7 +95,7 @@
       "category": "laptop",
       "price": 599,
       "quantity": 90,
-      "image": [
+      "images": [
         "/images/huawei-matebook-d14/huawei-matebook-d14.webp",
         "/images/huawei-matebook-d14/huawei-matebook-d142.webp"
       ],
@@ -123,7 +123,7 @@
       "category": "phone",
       "price": 499,
       "quantity": 94,
-      "image": [
+      "images": [
         "/images/huawei-p50-pocket/huawei-p50-pocket.webp",
         "/images/huawei-p50-pocket/huawei-p50-pocket2.webp"
       ],
@@ -151,7 +151,7 @@
       "category": "laptop",
       "quantity": 100,
       "price": 1499,
-      "image": [
+      "images": [
         "/images/huawei-matebook-x-pro/huawei-matebook-x-pro.webp",
         "/images/huawei-matebook-x-pro/huawei-matebook-x-pro2.webp"
       ],
@@ -183,7 +183,7 @@
       "category": "phone",
       "price": 1299,
       "quantity": 143,
-      "image": [
+      "images": [
         "/images/huawei-p50-pro/huawei-p50-pro.webp",
         "/images/huawei-p50-pro/huawei-p50-pro2.webp"
       ],
@@ -211,7 +211,7 @@
       "category": "phone",
       "price": 599,
       "quantity": 1000,
-      "image": [
+      "images": [
         "/images/huawei-p50-pocket/huawei-p50-pocket.webp",
         "/images/huawei-p50-pocket/huawei-p50-pocket2.webp"
       ],
@@ -253,16 +253,6 @@
       "name": "NguyenDuong",
       "role": "admin",
       "email": "codebyduong@gmail.com"
-    },
-    {
-      "id": "929edee4-7bcd-4896-a407-11836fd3f422",
-      "username": "duong",
-      "password": "$2a$10$6f6vHGhzPNcz6EycZ/bAKO2B7tSvVRFamhp11mQmrERl6IH2ZiUCe",
-      "name": "Nguyễn Dương",
-      "email": "duongcoilc2004@gmail.com",
-      "address": "123, Lorem ipsum",
-      "phone": "0987654321",
-      "role": "user"
     }
   ],
   "orders": []

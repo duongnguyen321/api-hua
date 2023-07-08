@@ -36,7 +36,7 @@ const addProductController = async (req, res) => {
     }
     const id = await generateProductId(name);
 
-    const isUploadImages = await uploadImages(images, name);
+    const isUploadImages = await uploadImages(images, id, name);
     if (!isUploadImages.success) {
       return res.status(400).json({ message: "Đã xảy ra lỗi khi thêm!" });
     }

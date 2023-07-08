@@ -37,6 +37,34 @@
     - `id` (string): ID của sản phẩm.
   - Kết quả: Đối tượng sản phẩm có ID đã chỉ định.
 
+- **POST /products**
+
+  - Mô tả: Tạo sản phẩm mới.
+  - Header:
+    `userid` (string): ID của người dùng tạo sản phẩm cần là một **admin**.
+  - Body: Đối tượng chứa thông tin sản phẩm mới (`name: String`, `type: String`, `category: String`, `quantity: Number`, `price: Number`, `images: File`).
+  - Kết quả: Một đối tượng với thông báo "Thêm sản phẩm mới thành công!" và sản phẩm đã được tạo.
+
+- **PUT /products**
+
+  - Mô tả: Cập nhật thông tin sản phẩm.
+  - Header:
+    `userid` (string): ID của người dùng cập nhật sản phẩm cần là một **admin**.
+  - Body: Đối tượng chứa thông tin sản phẩm cần cập nhật (`name: String`, `type: String`, `category: String`, `quantity: Number`, `price: Number`, `images: File`).
+
+    - Có thể bao gồm một số thuộc tính hoặc tất cả các thuộc tính của sản phẩm.
+
+  - Kết quả: Một đối tượng với thông báo "Cập nhật sản phẩm thành công!" và sản phẩm đã cập nhật.
+
+- **DELETE /products**
+
+  - Mô tả: Xóa sản phẩm bằng ID của nó.
+  - Header:
+    `userid` (string): ID của người dùng xóa sản phẩm cần là một **admin**.
+  - Tham số:
+    - `id` (string): ID của sản phẩm.
+  - Kết quả: Một đối tượng với thông báo "Xóa sản phẩm thành công!" và sản phẩm đã xóa.
+
 - **GET /orders**
 
   - Mô tả: Lấy đơn hàng với khả năng lọc tùy chọn bằng user_id hoặc order_id.
@@ -64,25 +92,25 @@
   - Mô tả: Cập nhật thông tin người dùng.
   - Tham số:
     - `id` (string): ID của người dùng cần cập nhật.
-  - Thân Yêu Cầu: Đối tượng chứa thông tin người dùng đã cập nhật (`name`, `address`, `phone`, `email`).
+  - Body: Đối tượng chứa thông tin người dùng đã cập nhật (`name`, `address`, `phone`, `email`).
   - Kết quả: Một đối tượng với thông báo "Cập nhật thông tin thành công!" và người dùng đã cập nhật.
 
 - **POST /admins/create**
 
   - Mô tả: Tạo người dùng quản trị mới (yêu cầu xác thực).
-  - Thân Yêu Cầu: Đối tượng chứa thông tin người dùng quản trị mới (`username`, `password`, `role`, `address`, `phone`, `name`, `email`).
+  - Body: Đối tượng chứa thông tin người dùng quản trị mới (`username`, `password`, `role`, `address`, `phone`, `name`, `email`).
   - Kết quả: Một đối tượng với thông báo "Tạo admin mới thành công!" và người dùng quản trị đã được tạo.
 
 - **POST /login**
 
   - Mô tả: Xác thực người dùng và tạo mã thông báo cho các cuộc gọi API tiếp theo.
-  - Thân Yêu Cầu: Đối tượng chứa `username` và `password` của người dùng.
+  - Body: Đối tượng chứa `username` và `password` của người dùng.
   - Kết quả: Một đối tượng với thông báo "Đăng nhập thành công!" và thông tin người dùng đã được xác thực, bao gồm mã thông báo truy cập.
 
 - **POST /register**
 
   - Mô tả: Tạo tài khoản người dùng mới.
-  - Thân Yêu Cầu: Đối tượng chứa thông tin người dùng mới (`username`, `password`, `name`, `email`, `address`, `phone`).
+  - Body: Đối tượng chứa thông tin người dùng mới (`username`, `password`, `name`, `email`, `address`, `phone`).
   - Kết quả: Một đối tượng với thông báo "Đăng ký tài khoản thành công!" và người dùng đã được tạo, bao gồm mã thông báo truy cập và mã thông báo đặt lại.
 
 - **GET /auth-token**
