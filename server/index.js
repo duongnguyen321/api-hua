@@ -21,15 +21,7 @@ const rootRouter = require("../routes/root");
 // Enable JSON body parsing
 server.use(bodyParser);
 server.use(function (req, res, next) {
-  const allowedOrigins = [
-    "http://localhost:5500",
-    "http://localhost:3000",
-    "https://huashop.vercel.app",
-  ];
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE");
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -40,20 +32,19 @@ server.use(function (req, res, next) {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
-  res.set("Cache-Control", "no-store");
+  res.set("Cache-Control", "no-store")
   next();
 });
 
 server.use((req, res, next) => {
   const { authorization, userid: userId } = req.headers;
   if (
-    req.path === "/api" ||
-    // accept all requests for public files
     req.path.startsWith("/auth") ||
     req.path.startsWith("/products") ||
     req.path.startsWith("/assets") ||
     req.path.startsWith("/images") ||
-    req.path.startsWith("/")
+    req.path === "/api" ||
+    req.path === "/"
   ) {
     return next();
   }
