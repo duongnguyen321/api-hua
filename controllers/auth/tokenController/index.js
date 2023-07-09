@@ -5,8 +5,8 @@ const { generateAccessToken } = require("../helper");
 
 const refreshTokenMiddleware = async (req, res, next) => {
   const refreshToken = req.headers.authorization.split(" ")[1];
+  const userid = req.headers.userid;
   const prevAccessToken = req.body.accessToken;
-  const userid = req.body.userid;
 
   if (!refreshToken) {
     return res
@@ -47,8 +47,8 @@ const refreshTokenMiddleware = async (req, res, next) => {
 };
 
 const autoLoginController = async (req, res) => {
-  const userid = req.body.userid;
   const accessToken = req.headers.authorization.split(" ")[1];
+  const userid = req.headers.userid;
 
   if (!accessToken) {
     return res
