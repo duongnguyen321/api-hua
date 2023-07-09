@@ -97,7 +97,6 @@ const hardResetData = async (req, res) => {
         await fs.rmdirSync(folderPath);
       }
     });
-    console.log(data);
     await fs.writeFileSync(
       path.join(__dirname, "../../../../data/db.json"),
       data
