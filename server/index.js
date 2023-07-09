@@ -22,9 +22,9 @@ const rootRouter = require("../routes/root");
 server.use(bodyParser);
 server.use(function (req, res, next) {
   const allowedOrigins = [
-    "http://localhost:5500/*",
-    "http://localhost:3000/*",
-    "https://huashop.vercel.app/*",
+    "http://localhost:5500",
+    "http://localhost:3000",
+    "https://huashop.vercel.app",
   ];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
