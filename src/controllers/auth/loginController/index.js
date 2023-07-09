@@ -1,7 +1,7 @@
 const jsonServer = require("json-server");
 const router = jsonServer.router("data/db.json");
 const bcrypt = require("bcryptjs");
-const { generateAccessToken } = require("../helper");
+const { generateAccessToken, generateResetToken } = require("../helper");
 
 const loginController = async (req, res) => {
   const { username, password } = req.body;
@@ -20,10 +20,12 @@ const loginController = async (req, res) => {
   const { password: userPassword, ...userInfo } = user;
 
   const accessToken = await generateAccessToken(user);
+  const refreshToken = await generateResetToken(user);
   res.status(200).json({
     message: "Đăng nhập thành công!",
     user: userInfo,
     accessToken,
+    refreshToken,
   });
 };
 module.exports = loginController;
