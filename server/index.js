@@ -21,15 +21,7 @@ const rootRouter = require("../routes/root");
 // Enable JSON body parsing
 server.use(bodyParser);
 server.use(function (req, res, next) {
-  const allowedOrigins = [
-    "http://localhost:5500",
-    "http://localhost:3000",
-    "https://huashop.vercel.app",
-  ];
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
