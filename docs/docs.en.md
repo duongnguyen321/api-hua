@@ -1,12 +1,18 @@
 ## REST API Documentation
 
+---
+
 ### Introduction
 
 This is a REST API server built using json-server library. It provides endpoints for managing products, orders, users, and authentication.
 
+---
+
 ### Prerequisites
 
 - Node.js and npm should be installed on your system.
+
+---
 
 ### Installation
 
@@ -14,12 +20,18 @@ This is a REST API server built using json-server library. It provides endpoints
 2. Navigate to the project directory.
 3. Install dependencies by running the following command:
 
+---
+
 ### Usage
 
 1. Start the server by running the following command:
    The server will start running on the specified port (default: 3001).
 
+---
+
 2. API Endpoints:
+
+   ***
 
 - **GET /products?type=:type**
 
@@ -30,12 +42,16 @@ This is a REST API server built using json-server library. It provides endpoints
     - `maxprice` (optional, number): The maximum price of products to retrieve.
   - Returns: An array of products matching the specified criteria.
 
+  ***
+
 - **GET /products?id=:id**
 
   - Description: Get a product by its ID.
   - Parameters:
     - `id` (string): The ID of the product.
   - Returns: The product object with the specified ID.
+
+  ***
 
 - **POST /products**
 
@@ -44,6 +60,8 @@ This is a REST API server built using json-server library. It provides endpoints
     `userid` (string): The ID of the user creating the product, must be an **admin**.
   - Body: An object containing the information of the new product (`name: String`, `type: String`, `category: String`, `quantity: Number`, `price: Number`, `images: File`).
   - Response: An object with the message "New product added successfully!" and the created product.
+
+  ***
 
 - **PUT /products**
 
@@ -56,6 +74,8 @@ This is a REST API server built using json-server library. It provides endpoints
 
   - Response: An object with the message "Product updated successfully!" and the updated product.
 
+  ***
+
 - **DELETE /products**
 
   - Description: Delete a product by its ID.
@@ -65,35 +85,45 @@ This is a REST API server built using json-server library. It provides endpoints
     - `id` (string): The ID of the product.
   - Response: An object with the message "Product deleted successfully!" and the deleted product.
 
+  ***
+
 - **GET /orders**
 
-  - Description: Get orders with optional filtering by userid or orderid.
+  - Description: Get orders with optional filtering by userid or orderid.(requires authentication).
   - Parameters:
     - `userid` (optional, string): Filter orders by user ID.
     - `orderid` (optional, string): Get a specific order by its ID.
   - Returns: An object containing the orders matching the specified criteria.
 
+  ***
+
 - **POST /orders/create**
 
-  - Description: Create a new order.
+  - Description: Create a new order.(requires authentication).
   - Request Body:
     - `items` (array): An array of objects representing the items to order. Each item should have `productid` and `quantity` properties.
   - Returns: An object with the message "Đặt hàng thành công!" and the created order.
 
+  ***
+
 - **GET /users/:id**
 
-  - Description: Get a user by their ID.
+  - Description: Get a user by their ID.(requires authentication).
   - Parameters:
     - `id` (string): The ID of the user.
   - Returns: The user object with the specified ID (excluding the password).
 
+  ***
+
 - **PATCH /users/:id**
 
-  - Description: Update a user's information.
+  - Description: Update a user's information.(requires authentication).
   - Parameters:
     - `id` (string): The ID of the user to update.
   - Request Body: An object containing the updated user information (`name`, `address`, `phone`, `email`).
   - Returns: An object with the message "Cập nhật thông tin thành công!" and the updated user.
+
+  ***
 
 - **POST /admins/create**
 
@@ -101,17 +131,31 @@ This is a REST API server built using json-server library. It provides endpoints
   - Request Body: An object containing the new admin's information (`username`, `password`, `role`, `address`, `phone`, `name`, `email`).
   - Returns: An object with the message "Tạo admin mới thành công!" and the created admin.
 
+  ***
+
+- **POST /admins/hard-reset**
+
+  - Description: Reset the database to its initial state (requires authentication).
+  - Request Body: An object containing the new admin's information (`username`, `password`, `userid`, `accessToken`).
+  - Returns: An object with the message "Restore data thành công!" and the database has been reset.
+
+  ***
+
 - **POST /login**
 
   - Description: Authenticate a user and generate a token for further API calls.
   - Request Body: An object containing the user's `username` and `password`.
   - Returns: An object with the message “login successful!” and authenticated user information, including access token.
 
+  ***
+
 - **POST /register**
 
   - Description: Create a new user account.
   - Request Body: An object containing the new user's information (`username`, `password`, `name`, `email`, `address`, `phone`).
   - Returns: An object with the message “account registration successful!” and the created user, including access token and refresh token.
+
+  ***
 
 - **POST /auth-token**
 
@@ -125,6 +169,8 @@ This is a REST API server built using json-server library. It provides endpoints
     `accessToken` (string): The user’s access token.
 
   - Result: An object with the message “Automatic login successful!” and authenticated user information.
+
+  ***
 
 - **POST /refresh-token**
 
@@ -140,12 +186,62 @@ This is a REST API server built using json-server library. It provides endpoints
 
   - Result: An object with the message “Token refresh successful!” and the new access token.
 
+---
+
 3. Authorization:
 
 - Some endpoints require authentication. Use the `/login` endpoint to obtain a token, and include it in the `Authorization` header for authenticated requests.
+
+---
 
 ### Notes
 
 - The server uses a JSON file (db.json) as a database for storing products, orders, and users.
 - The server supports basic CRUD operations for managing the data.
 - Some endpoints require authentication and authorization based on user roles.
+
+---
+
+### Heed
+
+Except for the following endpoints, all other endpoints require authentication `userid` and `Authorization: Bearer accessToken` header.
+
+---
+
+- **GET /products?type=:type**
+
+  ***
+
+- **GET /products?id=:id**
+
+  ***
+
+- **POST /login**
+
+  ***
+
+- **POST /register**
+
+  ***
+
+- **POST /auth-token**
+
+  ***
+
+- **POST /refresh-token**
+
+  ***
+
+- **GET /assets/:path**
+
+  ***
+
+- **GET /images/:path**
+
+  ***
+
+- **GET /api**
+
+  ***
+
+- **GET /**
