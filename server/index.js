@@ -30,17 +30,13 @@ server.use(function (req, res, next) {
   next();
 });
 
-// configure all requests but not /auth/register , check jwt token is Expired or not
-
 server.use((req, res, next) => {
-  const { authorization, userid } = req.headers;
+  const { authorization, userid: userId } = req.headers;
   if (
-    req.path === "/products" ||
-    req.path === "/auth/register" ||
-    req.path === "/auth/login" ||
-    req.path === "/auth/refresh-token" ||
     req.path === "/api" ||
     // accept all requests for public files
+    req.path.startsWith("/auth") ||
+    req.path.startsWith("/products") ||
     req.path.startsWith("/assets") ||
     req.path.startsWith("/images") ||
     req.path.startsWith("/")
@@ -48,7 +44,9 @@ server.use((req, res, next) => {
     return next();
   }
 
-  // if req
+  if (!userId) {
+    return res.status(401).json({ message: "User id không được cung cấp!" });
+  }
 
   if (!authorization) {
     return res
@@ -65,7 +63,7 @@ server.use((req, res, next) => {
       process.env.ACCESS_TOKEN_SECRET
     );
     const { exp, userid } = decodedToken;
-    if (userid !== userid) {
+    if (userid !== userId) {
       return res.status(401).json({ message: "Access token không hợp lệ!" });
     }
     if (Date.now() >= exp * 1000) {
@@ -75,7 +73,7 @@ server.use((req, res, next) => {
   } catch (err) {
     return res
       .status(401)
-      .json({ message: "Oops! Something went wrong!", navigation: "login" });
+      .json({ message: "Oops! Something went wrong!"});
   }
 });
 
