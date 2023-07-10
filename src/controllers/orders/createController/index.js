@@ -16,7 +16,7 @@ const createController = async (req, res) => {
       userid,
       productid: [],
       quantity: [],
-      total_price: 0,
+      totalPrice: 0,
       status: "Đang xử lý",
     };
     for (const { productid, quantity } of items) {
@@ -29,7 +29,7 @@ const createController = async (req, res) => {
       }
       order.productid.push(productid);
       order.quantity.push(quantity);
-      order.total_price += product.price * quantity;
+      order.totalPrice += product.price * quantity;
       await router.db
         .get("products")
         .find({ id: productid })
@@ -47,4 +47,3 @@ const createController = async (req, res) => {
   }
 };
 module.exports = createController;
-

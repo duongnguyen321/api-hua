@@ -308,7 +308,7 @@ The server will start running on the specified port (default: 3001).
             "5-hw-p50-pocket"
           ],
           "quantity": [1, 22, 33],
-          "total_price": 46544,
+          "totalPrice": 46544,
           "status": "Đang xử lý"
         }
       ]

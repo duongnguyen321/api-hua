@@ -310,7 +310,7 @@ Máy chủ sẽ bắt đầu chạy trên cổng đã chỉ định (mặc đị
             "5-hw-p50-pocket"
           ],
           "quantity": [1, 22, 33],
-          "total_price": 46544,
+          "totalPrice": 46544,
           "status": "Đang xử lý"
         }
       ]
