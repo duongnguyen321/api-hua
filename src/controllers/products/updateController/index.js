@@ -38,8 +38,7 @@ const updateProductController = async (req, res) => {
     quantity = 0,
     price = 0,
     images = [],
-    ratings = [],
-    sales = [],
+    ratings = []
   } = req.body;
   try {
     if (!checkId(id)) {
@@ -92,10 +91,19 @@ const updateProductController = async (req, res) => {
       newData.images = isUploadImages.images;
     }
     if (ratings && Array.isArray(ratings) && ratings.length > 0) {
+      const isRatings = ratings.every((rating) => {
+        const { userid, rating: rate } = rating;
+        if (!userid || !rate) return false;
+        if (typeof userid !== "string" || typeof rate !== "number")
+          return false;
+        return true;
+      });
+      if (!isRatings) {
+        return res
+          .status(400)
+          .json({ message: "Cập nhật đánh giá không thành công!" });
+      }
       if (ratings !== prevData.ratings) newData.ratings = ratings;
-    }
-    if (sales && Array.isArray(sales) && sales.length > 0) {
-      if (sales !== prevData.sales) newData.sales = sales;
     }
     if (Object.keys(newData).length === 0) {
       return res.status(400).json({ message: "Không có gì để cập nhật!" });

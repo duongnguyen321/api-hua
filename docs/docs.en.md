@@ -170,52 +170,33 @@ The server will start running on the specified port (default: 3001).
       "Authorization": "Bearer AaCcEeSsTtOoKkEeNn"
     },
     "result": {
+      "message": "Lấy thông tin đơn hàng thành công!",
       "orders": [
         {
           "id": "OoRrDdEeRrIiDd",
+          "totalPrices": 2998,
+          "totalProducts": 2,
           "status": "Đang xử lý",
           "products": [
             {
-              "id": "PpRrOoDdUuCcTtIiDd",
+              "id": "PpRrOoDdUuCcTtIiDd1",
               "name": "Huawei Matebook X Pro",
               "type": "new",
               "category": "laptop",
-              "quantity": 1,
+              "quantity": 2,
               "price": 1499,
-              "images": ["/images/image.webp", "/images/image.jpeg"]
+              "images": [
+                "/images/huawei-matebook-x-pro/huawei-matebook-x-pro.webp",
+                "/images/huawei-matebook-x-pro/huawei-matebook-x-pro2.webp"
+              ]
             }
           ],
           "user": {
             "name": "Nguyen Duong",
-            "email": "example@gmail.com",
-            "address": "Address",
-            "phone": "0987654321"
-          },
-          "totalPrice": 1499,
-          "totalProduct": 1
-        },
-        {
-          "id": "OoRrDdEeRrIiDd2",
-          "status": "Đang xử lý",
-          "products": [
-            {
-              "id": "PpRrOoDdUuCcTtIiDd",
-              "name": "Huawei Matebook X Pro",
-              "type": "new",
-              "category": "laptop",
-              "quantity": 1,
-              "price": 1499,
-              "images": ["/images/image.webp", "/images/image.jpeg"]
-            }
-          ],
-          "user": {
-            "name": "Nguyen Duong",
-            "email": "example@gmail.com",
-            "address": "Address",
-            "phone": "0987654321"
-          },
-          "totalPrice": 1499,
-          "totalProduct": 1
+            "email": "duongcoilc2004@gmail.com",
+            "address": "197 Tran Phu, Ha Dong, Ha Noi, Viet Nam",
+            "phone": "0986921104"
+          }
         }
       ]
     }
@@ -237,32 +218,31 @@ The server will start running on the specified port (default: 3001).
       "Authorization": "Bearer AaCcEeSsTtOoKkEeNn"
     },
     "result": {
-      "orders": {
-        "id": "OoRrDdEeRrIiDd",
-        "status": "Đang xử lý",
-        "products": [
-          {
-            "id": "PpRrOoDdUuCcTtIiDd",
-            "name": "Huawei Matebook X Pro",
-            "type": "new",
-            "category": "laptop",
-            "quantity": 1,
-            "price": 1499,
-            "images": [
-              "/images/huawei-matebook-x-pro/huawei-matebook-x-pro.webp",
-              "/images/huawei-matebook-x-pro/huawei-matebook-x-pro2.webp"
-            ]
-          }
-        ],
-        "user": {
-          "name": "Nguyen Duong",
-          "email": "email@example.com",
-          "address": "Address",
-          "phone": "0987654321"
-        },
-        "totalPrice": 1499,
-        "totalProduct": 1
-      }
+      "message": "Lấy thông tin đơn hàng thành công!",
+      "id": "OoRrDdEeRrIiDd",
+      "status": "Đang xử lý",
+      "products": [
+        {
+          "id": "PpRrOoDdUuCcTtIiDd1",
+          "name": "Huawei Matebook X Pro",
+          "type": "new",
+          "category": "laptop",
+          "quantity": 3,
+          "price": 1499,
+          "images": [
+            "/images/huawei-matebook-x-pro/huawei-matebook-x-pro.webp",
+            "/images/huawei-matebook-x-pro/huawei-matebook-x-pro2.webp"
+          ]
+        }
+      ],
+      "user": {
+        "name": "User Name",
+        "email": "example@gmail.com",
+        "address": "Address",
+        "phone": "0123456789"
+      },
+      "totalPrices": 4497,
+      "totalProducts": 3
     }
   }
   ```
@@ -284,16 +264,16 @@ The server will start running on the specified port (default: 3001).
     "body": {
       "items": [
         {
-          "productid": "1-hw-matebook-x-pro",
+          "productid": "PpRrOoDdUuCcTtIiDd1",
           "quantity": 1
         },
         {
-          "productid": "2-hw-p50-pro",
+          "productid": "PpRrOoDdUuCcTtIiDd2",
           "quantity": 22
         },
         {
-          "productid": "5-hw-p50-pocket",
-          "quantity": 33
+          "productid": "PpRrOoDdUuCcTtIiDd3",
+          "quantity": 333
         }
       ]
     },
@@ -303,9 +283,9 @@ The server will start running on the specified port (default: 3001).
         {
           "id": "OoRrDdEeRrIiDd",
           "productid": [
-            "1-hw-matebook-x-pro",
-            "2-hw-p50-pro",
-            "5-hw-p50-pocket"
+            "PpRrOoDdUuCcTtIiDd1",
+            "PpRrOoDdUuCcTtIiDd2",
+            "PpRrOoDdUuCcTtIiDd3"
           ],
           "quantity": [1, 22, 33],
           "totalPrice": 46544,

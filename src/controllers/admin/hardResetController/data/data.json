@@ -20,16 +20,6 @@
           "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
           "rating": 8
         }
-      ],
-      "sales": [
-        {
-          "type": "new",
-          "count": 50
-        },
-        {
-          "type": "used",
-          "count": 20
-        }
       ]
     },
     {
@@ -51,12 +41,6 @@
         {
           "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
           "rating": 9
-        }
-      ],
-      "sales": [
-        {
-          "type": "new",
-          "count": 150
         }
       ]
     },
@@ -80,12 +64,6 @@
           "userid": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
           "rating": 8
         }
-      ],
-      "sales": [
-        {
-          "type": "new",
-          "count": 50
-        }
       ]
     },
     {
@@ -107,12 +85,6 @@
         {
           "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
           "rating": 10
-        }
-      ],
-      "sales": [
-        {
-          "type": "used",
-          "count": 10
         }
       ]
     },
@@ -136,12 +108,6 @@
           "userid": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
           "rating": 8
         }
-      ],
-      "sales": [
-        {
-          "type": "used",
-          "count": 50
-        }
       ]
     },
     {
@@ -163,16 +129,6 @@
         {
           "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
           "rating": 8
-        }
-      ],
-      "sales": [
-        {
-          "type": "new",
-          "count": 50
-        },
-        {
-          "type": "used",
-          "count": 20
         }
       ]
     },
@@ -196,12 +152,6 @@
           "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
           "rating": 9
         }
-      ],
-      "sales": [
-        {
-          "type": "new",
-          "count": 150
-        }
       ]
     },
     {
@@ -223,12 +173,6 @@
         {
           "userid": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
           "rating": 8
-        }
-      ],
-      "sales": [
-        {
-          "type": "new",
-          "count": 50
         }
       ]
     }

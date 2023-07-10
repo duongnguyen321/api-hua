@@ -5,7 +5,7 @@
       "name": "Huawei Matebook X Pro",
       "type": "new",
       "category": "laptop",
-      "quantity": 1000,
+      "quantity": 993,
       "price": 1499,
       "images": [
         "/images/huawei-matebook-x-pro/huawei-matebook-x-pro.webp",
@@ -20,16 +20,6 @@
           "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
           "rating": 8
         }
-      ],
-      "sales": [
-        {
-          "type": "new",
-          "count": 50
-        },
-        {
-          "type": "used",
-          "count": 20
-        }
       ]
     },
     {
@@ -38,7 +28,7 @@
       "type": "new",
       "category": "phone",
       "price": 1299,
-      "quantity": 1500,
+      "quantity": 1486,
       "images": [
         "/images/huawei-p50-pro/huawei-p50-pro.webp",
         "/images/huawei-p50-pro/huawei-p50-pro2.webp"
@@ -51,12 +41,6 @@
         {
           "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
           "rating": 9
-        }
-      ],
-      "sales": [
-        {
-          "type": "new",
-          "count": 150
         }
       ]
     },
@@ -80,12 +64,6 @@
           "userid": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
           "rating": 8
         }
-      ],
-      "sales": [
-        {
-          "type": "new",
-          "count": 50
-        }
       ]
     },
     {
@@ -107,12 +85,6 @@
         {
           "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
           "rating": 10
-        }
-      ],
-      "sales": [
-        {
-          "type": "used",
-          "count": 10
         }
       ]
     },
@@ -136,12 +108,6 @@
           "userid": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
           "rating": 8
         }
-      ],
-      "sales": [
-        {
-          "type": "used",
-          "count": 50
-        }
       ]
     },
     {
@@ -163,16 +129,6 @@
         {
           "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
           "rating": 8
-        }
-      ],
-      "sales": [
-        {
-          "type": "new",
-          "count": 50
-        },
-        {
-          "type": "used",
-          "count": 20
         }
       ]
     },
@@ -196,12 +152,6 @@
           "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
           "rating": 9
         }
-      ],
-      "sales": [
-        {
-          "type": "new",
-          "count": 150
-        }
       ]
     },
     {
@@ -223,12 +173,6 @@
         {
           "userid": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
           "rating": 8
-        }
-      ],
-      "sales": [
-        {
-          "type": "new",
-          "count": 50
         }
       ]
     }
@@ -255,5 +199,104 @@
       "email": "codebyduong@gmail.com"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "id": "da9373b7-8fc3-4db8-9802-c9ee2ee77e49",
+      "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+      "productid": [
+        "1-hw-matebook-x-pro",
+        "2-hw-p50-pro"
+      ],
+      "quantity": [
+        1,
+        2
+      ],
+      "totalPrice": 4097,
+      "status": "Đang xử lý"
+    },
+    {
+      "id": "b47dc8bb-8cf1-4084-a145-d958ba96f248",
+      "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+      "productid": [
+        "1-hw-matebook-x-pro",
+        "2-hw-p50-pro"
+      ],
+      "quantity": [
+        1,
+        2
+      ],
+      "totalPrice": 4097,
+      "status": "Đang xử lý"
+    },
+    {
+      "id": "c05e8716-f3c7-411e-904b-4ccc57f8beeb",
+      "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+      "productid": [
+        "1-hw-matebook-x-pro",
+        "2-hw-p50-pro"
+      ],
+      "quantity": [
+        1,
+        2
+      ],
+      "totalPrice": 4097,
+      "status": "Đang xử lý"
+    },
+    {
+      "id": "59fa5daf-8162-4cce-9bce-08f95c2a2b21",
+      "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+      "productid": [
+        "1-hw-matebook-x-pro",
+        "2-hw-p50-pro"
+      ],
+      "quantity": [
+        1,
+        2
+      ],
+      "totalPrice": 4097,
+      "status": "Đang xử lý"
+    },
+    {
+      "id": "a36b5e96-e013-476d-ac6a-eff0c2705639",
+      "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+      "productid": [
+        "1-hw-matebook-x-pro",
+        "2-hw-p50-pro"
+      ],
+      "quantity": [
+        1,
+        2
+      ],
+      "totalPrice": 4097,
+      "status": "Đang xử lý"
+    },
+    {
+      "id": "2c19ff5a-b781-46d1-b2f7-fca2cbad71c5",
+      "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+      "productid": [
+        "1-hw-matebook-x-pro",
+        "2-hw-p50-pro"
+      ],
+      "quantity": [
+        1,
+        2
+      ],
+      "totalPrice": 4097,
+      "status": "Đang xử lý"
+    },
+    {
+      "id": "a6f71ec1-25da-4cda-837d-1e84c32873a3",
+      "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+      "productid": [
+        "1-hw-matebook-x-pro",
+        "2-hw-p50-pro"
+      ],
+      "quantity": [
+        1,
+        2
+      ],
+      "totalPrice": 4097,
+      "status": "Đang xử lý"
+    }
+  ]
 }
