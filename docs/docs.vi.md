@@ -320,7 +320,7 @@ Máy chủ sẽ bắt đầu chạy trên cổng đã chỉ định (mặc đị
 
   ***
 
-- **GET /user/:id**
+- **GET /users/:userid**
 
   - Mô tả: Lấy thông tin người dùng bằng ID (yêu cầu xác thực).
   - Tham số:
@@ -329,7 +329,7 @@ Máy chủ sẽ bắt đầu chạy trên cổng đã chỉ định (mặc đị
 
   ***
 
-- **PATCH /user/:id**
+- **PATCH /users/:userid**
 
   - Mô tả: Cập nhật thông tin người dùng (yêu cầu xác thực).
   - Tham số:

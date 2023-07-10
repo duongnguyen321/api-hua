@@ -318,7 +318,7 @@ The server will start running on the specified port (default: 3001).
 
   ***
 
-- **GET /users/:id**
+- **GET /users/:userid**
 
   - Description: Get a user by their ID.(requires authentication).
   - Parameters:
@@ -327,7 +327,7 @@ The server will start running on the specified port (default: 3001).
 
   ***
 
-- **PATCH /users/:id**
+- **PATCH /users/:userid**
 
   - Description: Update a user's information.(requires authentication).
   - Parameters:

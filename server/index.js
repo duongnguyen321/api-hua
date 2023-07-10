@@ -13,7 +13,7 @@ server.use(cors());
 // Import the routes
 const productsRouter = require("../src/routes/products");
 const ordersRouter = require("../src/routes/orders");
-const usersRouter = require("../src/routes/user");
+const usersRouter = require("../src/routes/users");
 const adminsRouter = require("../src/routes/admins");
 const authRouter = require("../src/routes/auth");
 const rootRouter = require("../src/routes/root");
@@ -85,7 +85,7 @@ server.use(async (req, res, next) => {
 // Use the routes
 server.use("/products", productsRouter);
 server.use("/orders", ordersRouter);
-server.use("/user", usersRouter);
+server.use("/users", usersRouter);
 server.use("/admins", adminsRouter);
 server.use("/auth", authRouter);
 server.use("/", rootRouter);

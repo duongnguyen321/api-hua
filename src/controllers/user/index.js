@@ -1,6 +1,6 @@
-const usersGetController = require("./getController");
+const userGetController = require("./getController");
 const userUpdateController = require("./updateController");
 module.exports = {
-  usersGetController,
+  userGetController,
   userUpdateController,
 };

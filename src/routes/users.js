@@ -2,12 +2,12 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  usersGetController,
+  userGetController,
   userUpdateController,
 } = require("../controllers/user");
 
 router.get("/:userid", (req, res) => {
-  usersGetController(req, res);
+  userGetController(req, res);
 });
 
 router.patch("/:userid", (req, res) => {
