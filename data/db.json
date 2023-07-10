@@ -253,16 +253,6 @@
       "name": "NguyenDuong",
       "role": "admin",
       "email": "codebyduong@gmail.com"
-    },
-    {
-      "id": "5f230dbd-56c1-4fc3-82f7-e37d418b03fe",
-      "username": "duong",
-      "password": "$2a$10$7HP2eQ2qpYlJSRsx8/WtKOfhfy.I2.k2NW3L5e7UH7mAQrnTWdBj6",
-      "name": "Nguyễn Dương",
-      "email": "duongcoilc2004@gmail.com",
-      "address": "123, Lorem ipsum",
-      "phone": "0987654321",
-      "role": "user"
     }
   ],
   "orders": []

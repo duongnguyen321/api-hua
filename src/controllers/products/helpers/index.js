@@ -68,7 +68,7 @@ const checkValidProduct = ({
 const uploadImages = async (images, id, name = "image") => {
   const folder = path.join(
     __dirname,
-    `../../../public/images/${removeAccents(id.toLowerCase()).replace(
+    `../../../../public/images/${removeAccents(id.toLowerCase()).replace(
       / /g,
       "-"
     )}`

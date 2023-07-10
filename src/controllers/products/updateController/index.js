@@ -64,7 +64,7 @@ const updateProductController = async (req, res) => {
         const path = require("path");
         const oldImages = prevData.images;
         oldImages.forEach((image) => {
-          const imagePath = path.join(__dirname, `../../../public/${image}`);
+          const imagePath = path.join(__dirname, `../../../../public/${image}`);
           fs.unlink(imagePath, (err) => {
             if (err) {
               console.error(err);

@@ -11,12 +11,12 @@ const port = process.env.PORT || 3001;
 server.use(cors());
 
 // Import the routes
-const productsRouter = require("../routes/products");
-const ordersRouter = require("../routes/orders");
-const usersRouter = require("../routes/users");
-const adminsRouter = require("../routes/admins");
-const authRouter = require("../routes/auth");
-const rootRouter = require("../routes/root");
+const productsRouter = require("../src/routes/products");
+const ordersRouter = require("../src/routes/orders");
+const usersRouter = require("../src/routes/users");
+const adminsRouter = require("../src/routes/admins");
+const authRouter = require("../src/routes/auth");
+const rootRouter = require("../src/routes/root");
 
 // Enable JSON body parsing
 server.use(bodyParser);
@@ -32,7 +32,7 @@ server.use(function (req, res, next) {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
-  res.set("Cache-Control", "no-store")
+  res.set("Cache-Control", "no-store");
   next();
 });
 
@@ -42,11 +42,9 @@ server.use((req, res, next) => {
     req.path === "/auth/login" ||
     req.path === "/auth/register" ||
     req.path === "/auth/refresh-token" ||
-
     req.path.startsWith("/products") ||
     req.path.startsWith("/assets") ||
     req.path.startsWith("/images") ||
-    
     req.path === "/api" ||
     req.path === "/"
   ) {
