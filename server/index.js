@@ -13,7 +13,7 @@ server.use(cors());
 // Import the routes
 const productsRouter = require("../src/routes/products");
 const ordersRouter = require("../src/routes/orders");
-const usersRouter = require("../src/routes/users");
+const usersRouter = require("../src/routes/user");
 const adminsRouter = require("../src/routes/admins");
 const authRouter = require("../src/routes/auth");
 const rootRouter = require("../src/routes/root");
@@ -36,7 +36,7 @@ server.use(function (req, res, next) {
   next();
 });
 
-server.use((req, res, next) => {
+server.use(async (req, res, next) => {
   const { authorization, userid: userId } = req.headers;
   if (
     req.path === "/auth/login" ||
@@ -65,7 +65,7 @@ server.use((req, res, next) => {
     return res.status(401).json({ message: "Access token không hợp lệ!" });
   }
   try {
-    const decodedToken = jwt.verify(
+    const decodedToken = await jwt.verify(
       accessToken,
       process.env.ACCESS_TOKEN_SECRET
     );
@@ -85,7 +85,7 @@ server.use((req, res, next) => {
 // Use the routes
 server.use("/products", productsRouter);
 server.use("/orders", ordersRouter);
-server.use("/users", usersRouter);
+server.use("/user", usersRouter);
 server.use("/admins", adminsRouter);
 server.use("/auth", authRouter);
 server.use("/", rootRouter);

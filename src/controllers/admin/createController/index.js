@@ -4,8 +4,8 @@ const bcrypt = require("bcryptjs");
 const { v4: uuidv4 } = require("uuid");
 
 const createAdmin = async (req, res) => {
-  const { username, password, role, address, phone, name, email } = req.body;
-  const currentUser = req.headers.user;
+  const { username, password, address, phone, name, email } = req.body;
+  const currentUser = req.headers.username;
   const passwordCurrentUser = req.headers.password;
   if (!currentUser || !passwordCurrentUser) {
     return res.status(401).json({ message: "Bạn chưa đăng nhập!" });
@@ -46,7 +46,7 @@ const createAdmin = async (req, res) => {
       email,
       phone,
       name,
-      role,
+      role: "admin",
     };
     await router.db.get("users").push(newAdmin).write();
     const { password: userPassword, ...userInfo } = newAdmin;

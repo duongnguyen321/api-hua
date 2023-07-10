@@ -44,64 +44,54 @@ const hardResetData = async (req, res) => {
   }
   try {
     const data = await fs.readFileSync(
-      path.join(__dirname, "./data.json"),
+      path.join(__dirname, "./data/data.json"),
       "utf8"
     );
-    const imagesFolder = await fs.readdirSync(
-      path.join(__dirname, "../../../../public/images")
-    );
-    const imagesNeedToDelete = async () => {
-      const imageArr = [];
-      await router.db
-        .get("products")
-        .value()
-        .map(async (product) => {
-          await product.images.map((image) => {
-            if (!imageArr.includes(image.split("/")[2])) {
-              imageArr.push(image.split("/")[2]);
-            }
-            return image.split("/")[2];
-          });
-          const imagesInNewData = await JSON.parse(data).products.map(
-            (product) => {
-              return product.images.map((image) => {
-                const imageItem = image.split("/")[2];
-                // delete image in imageArr if include
-                if (imageArr.includes(imageItem)) {
-                  const index = imageArr.indexOf(imageItem);
-                  imageArr.splice(index, 1);
-                }
-                return imageItem;
-              });
-            }
-          );
-          const differentImages = imageArr.filter(
-            (image) => !imagesInNewData.includes(image)
-          );
-          return differentImages;
-        });
-      return imageArr;
-    };
-
-    await imagesFolder.forEach(async (folder) => {
-      const imagesNeedToDeleteInFolder = await imagesNeedToDelete();
-      if (imagesNeedToDeleteInFolder.includes(folder)) {
-        const folderPath = path.join(
-          __dirname,
-          `../../../../public/images/${folder}`
-        );
-        const files = await fs.readdirSync(folderPath);
-        files.forEach(async (file) => {
-          await fs.unlinkSync(`${folderPath}/${file}`);
-        });
-        await fs.rmdirSync(folderPath);
-      }
-    });
     await fs.writeFileSync(
       path.join(__dirname, "../../../../data/db.json"),
       data
     );
-    res.status(200).json({ message: "Restore data thành công!" });
+    const pathImagesPublic = path.join(__dirname, `../../../../public/images`);
+    const restoreData = async (folder) => {
+      const pathImagePublic = path.join(
+        __dirname,
+        `../../../../public/images/${folder}`
+      );
+      const pathImage = path.join(__dirname, `./data/images/${folder}`);
+      if (!fs.existsSync(pathImagesPublic)) {
+        await fs.mkdirSync(path.join(pathImagesPublic));
+      }
+      if (!fs.existsSync(pathImagePublic)) {
+        await fs.mkdirSync(path.join(pathImagePublic));
+      }
+      const imagesInFolder = await fs.readdirSync(pathImage, "utf8");
+      await imagesInFolder.forEach(async (image) => {
+        const pathImageInFolder = path.join(pathImage, `/${image}`);
+        const pathImageInFolderPublic = path.join(pathImagePublic, `/${image}`);
+        await fs.copyFileSync(pathImageInFolder, pathImageInFolderPublic);
+      });
+    };
+    const imagesFolder = await fs.readdirSync(
+      path.join(__dirname, "./data/images"),
+      "utf8"
+    );
+    const ImagesNeedDelete = await fs.readdirSync(pathImagesPublic, "utf8");
+    await ImagesNeedDelete.forEach(async (folder) => {
+      if (!imagesFolder.includes(folder)) {
+        const folderPath = path.join(pathImagesPublic, `/${folder}`);
+        const imagesInFolder = await fs.readdirSync(folderPath, "utf8");
+        await imagesInFolder.forEach(async (image) => {
+          const pathImageInFolder = path.join(folderPath, `/${image}`);
+          await fs.unlinkSync(pathImageInFolder);
+        });
+        await fs.rmdirSync(folderPath);
+      }
+    });
+    await imagesFolder.forEach(async (folder) => {
+      await restoreData(folder);
+    });
+
+    return res.status(200).json({ message: "Restore data thành công!" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Đã xảy ra lỗi khi restore data!" });

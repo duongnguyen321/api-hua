@@ -3,16 +3,14 @@ const getById = require("./getById");
 
 const getProductsController = (req, res) => {
   const { type, id } = req.query;
-  if (type && id === undefined) {
+  if (type && !id) {
     getByType(req, res);
-  } else if (id && type === undefined) {
+  } else if (id && !type) {
     getById(req, res);
   } else if (id && type) {
     getById(req, res);
   } else {
-    res.status(400).json({
-      message: "Không tìm thấy sản phẩm",
-    });
+    getByType(req, res);
   }
 };
 module.exports = getProductsController;

@@ -4,16 +4,19 @@ const { v4: uuidv4 } = require("uuid");
 
 const createController = async (req, res) => {
   const { items } = req.body;
-  const userid = req.headers.user;
-  const orders = [];
+  const userid = req.headers.userid;
+  if (!userid) {
+    return res.status(400).json({ message: "Thiếu thông tin đơn hàng" });
+  }
   try {
+    const orders = [];
     const products = await router.db.get("products").value();
     const order = {
       id: uuidv4(),
       userid,
       productid: [],
       quantity: [],
-      total_price: 0,
+      totalPrice: 0,
       status: "Đang xử lý",
     };
     for (const { productid, quantity } of items) {
@@ -26,7 +29,7 @@ const createController = async (req, res) => {
       }
       order.productid.push(productid);
       order.quantity.push(quantity);
-      order.total_price += product.price * quantity;
+      order.totalPrice += product.price * quantity;
       await router.db
         .get("products")
         .find({ id: productid })
@@ -35,12 +38,12 @@ const createController = async (req, res) => {
     }
     await router.db.get("orders").push(order).write();
     orders.push(order);
+    return res.status(200).json({ message: "Đặt hàng thành công!", orders });
   } catch (error) {
     console.error(error);
     return res
       .status(500)
       .json({ message: "Sản phẩm không tồn tại hoặc không đủ số lượng!" });
   }
-  res.status(200).json({ message: "Đặt hàng thành công!", orders });
 };
 module.exports = createController;

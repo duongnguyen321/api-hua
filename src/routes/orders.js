@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
   ordersGetController(req, res);
 });
 
-router.post("/create", async (req, res) => {
+router.post("/", async (req, res) => {
   ordersCreateController(req, res);
 });
 

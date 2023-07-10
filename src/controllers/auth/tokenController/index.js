@@ -3,7 +3,7 @@ const router = jsonServer.router("data/db.json");
 const jwt = require("jsonwebtoken");
 const { generateAccessToken } = require("../helper");
 
-const refreshTokenMiddleware = async (req, res, next) => {
+const refreshTokenMiddleware = async (req, res) => {
   const refreshToken = req.headers.authorization.split(" ")[1];
   const userid = req.headers.userid;
   const prevAccessToken = req.body.accessToken;
@@ -11,11 +11,11 @@ const refreshTokenMiddleware = async (req, res, next) => {
   if (!refreshToken) {
     return res
       .status(401)
-      .json({ message: "Reset token không được cung cấp!" });
+      .json({ message: "Refresh token không được cung cấp!" });
   }
 
   try {
-    const decodedResetToken = jwt.verify(
+    const decodedRefreshToken = jwt.verify(
       refreshToken,
       process.env.REFRESH_TOKEN_SECRET
     );
@@ -23,26 +23,28 @@ const refreshTokenMiddleware = async (req, res, next) => {
       prevAccessToken,
       process.env.ACCESS_TOKEN_SECRET
     );
-    const { userid: useridResetToken } = decodedResetToken;
+    const { userid: useridRefreshToken } = decodedRefreshToken;
     const { userid: useridPrevAccessToken } = decodedPrevAccessToken;
-    if (userid !== useridResetToken || userid !== useridPrevAccessToken) {
+    if (userid !== useridRefreshToken || userid !== useridPrevAccessToken) {
       return res
         .status(401)
-        .json({ message: "Reset token hoặc Access token không hợp lệ!" });
+        .json({ message: "Refresh token hoặc Access token không hợp lệ!" });
     }
     const user = router.db.get("users").find({ id: userid }).value();
     if (!user) {
       return res
         .status(401)
-        .json({ message: "Reset token hoặc Access token không hợp lệ!" });
+        .json({ message: "Refresh token hoặc Access token không hợp lệ!" });
     }
-    const accessToken = generateAccessToken(user.id);
-    req.body.accessToken = accessToken;
-    next();
+    const accessToken = await generateAccessToken(user.id);
+    return res.status(200).json({
+      message: "Refresh token thành công!",
+      accessToken: accessToken,
+    });
   } catch (err) {
     return res
       .status(401)
-      .json({ message: "Reset token hoặc Access token không hợp lệ!" });
+      .json({ message: "Refresh token hoặc Access token không hợp lệ!" });
   }
 };
 
@@ -75,7 +77,7 @@ const autoLoginController = async (req, res) => {
 
     const { password: userPassword, ...userInfo } = user;
 
-    res
+    return res
       .status(200)
       .json({ message: "Đăng nhập tự động thành công!", user: userInfo });
   } catch (err) {

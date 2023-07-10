@@ -1,4 +1,5 @@
 const jsonServer = require("json-server");
+const jwt = require("jsonwebtoken");
 const router = jsonServer.router("data/db.json");
 const {
   generateProductId,
@@ -8,6 +9,27 @@ const {
 
 const addProductController = async (req, res) => {
   const { name, type, category, quantity, price, images } = req.body;
+  const { authorization } = req.headers;
+  if (!authorization) {
+    return res.status(400).json({ message: "Access token không hợp lệ!" });
+  }
+  const accessToken = authorization.split(" ")[1];
+  if (!accessToken) {
+    return res.status(400).json({ message: "Access token không hợp lệ!" });
+  }
+  const decoded = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
+
+  if (!decoded) {
+    return res.status(400).json({ message: "Access token không hợp lệ!" });
+  }
+  const user = await router.db
+    .get("users")
+    .find({ id: decoded.userid })
+    .value();
+  if (!user) {
+    return res.status(400).json({ message: "Access token không hợp lệ!" });
+  }
+
   try {
     const { message, status, isValid } = checkValidProduct({
       name,
@@ -49,3 +71,4 @@ const addProductController = async (req, res) => {
 };
 
 module.exports = addProductController;
+

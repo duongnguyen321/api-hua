@@ -10,7 +10,7 @@ const generateAccessToken = async (user) => {
   return accessToken;
 };
 
-const generateResetToken = async (user) => {
+const generateRefreshToken = async (user) => {
   const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET;
   const refreshToken = jwt.sign({ userid: user.id }, refreshTokenSecret, {
     expiresIn: "60 days",
@@ -20,5 +20,5 @@ const generateResetToken = async (user) => {
 
 module.exports = {
   generateAccessToken,
-  generateResetToken,
+  generateRefreshToken,
 };

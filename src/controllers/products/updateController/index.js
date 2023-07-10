@@ -1,9 +1,33 @@
+const fs = require("fs");
+const path = require("path");
 const jsonServer = require("json-server");
 const router = jsonServer.router("data/db.json");
+const jwt = require("jsonwebtoken");
 const { uploadImages, checkId } = require("../helpers");
 
 const updateProductController = async (req, res) => {
   const { id } = req.query;
+  const { authorization } = req.headers;
+  if (!authorization) {
+    return res.status(400).json({ message: "Access token không hợp lệ!" });
+  }
+  const accessToken = authorization.split(" ")[1];
+  if (!accessToken) {
+    return res.status(400).json({ message: "Access token không hợp lệ!" });
+  }
+  const decoded = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
+
+  if (!decoded) {
+    return res.status(400).json({ message: "Access token không hợp lệ!" });
+  }
+  const user = await router.db
+    .get("users")
+    .find({ id: decoded.userid })
+    .value();
+  if (!user) {
+    return res.status(400).json({ message: "Access token không hợp lệ!" });
+  }
+
   const {
     name = "",
     type = "",
@@ -48,31 +72,21 @@ const updateProductController = async (req, res) => {
       newData.price = price;
     }
     if (images && Array.isArray(images) && images.length > 0) {
-      if (images !== prevData.images) {
-        newData.images = images;
-      } else {
-        const isUploadImages = await uploadImages(images, id, name);
-        if (!isUploadImages.success) {
-          return res
-            .status(400)
-            .json({ message: "Đã xảy ra lỗi khi cập nhật!" });
-        }
-        if (isUploadImages.images.length === 0) {
-          return res.status(400).json({ message: "Đã xảy ra lỗi khi thêm!" });
-        }
-        const fs = require("fs");
-        const path = require("path");
-        const oldImages = prevData.images;
-        oldImages.forEach((image) => {
-          const imagePath = path.join(__dirname, `../../../../public/${image}`);
-          fs.unlink(imagePath, (err) => {
-            if (err) {
-              console.error(err);
-            }
-          });
-        });
-        newData.images = isUploadImages.images;
+      const imagesArr = await router.db.get("products").find({ id }).value()
+        .images;
+      const folder = imagesArr[0].split("/")[2];
+      const folderPath = path.join(
+        __dirname,
+        `../../../../public/images/${folder}`
+      );
+      await fs.readdirSync(folderPath).forEach((file) => {
+        fs.unlinkSync(`${folderPath}/${file}`);
+      });
+      const isUploadImages = await uploadImages(images, id, name);
+      if (!isUploadImages.success) {
+        return res.status(400).json({ message: "Đã xảy ra lỗi khi cập nhật!" });
       }
+      newData.images = isUploadImages.images;
     }
     if (ratings && Array.isArray(ratings) && ratings.length > 0) {
       if (ratings !== prevData.ratings) newData.ratings = ratings;
