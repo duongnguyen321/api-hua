@@ -2,7 +2,7 @@ const jsonServer = require("json-server");
 const router = jsonServer.router("data/db.json");
 const jwt = require("jsonwebtoken");
 const getController = async (req, res) => {
-  const { userid } = req.query;
+  const { userid } = req.params;
   const accessToken = req.headers.authorization.split(" ")[1];
   if (!accessToken) {
     return res

@@ -1,8 +1,20 @@
 const jsonServer = require("json-server");
 const router = jsonServer.router("data/db.json");
+const jwt = require("jsonwebtoken");
 const updateController = (req, res) => {
-  const { userid } = req.query;
+  const { userid } = req.params;
   const { name, address, phone, email } = req.body;
+  const accessToken = req.headers.authorization.split(" ")[1];
+  if (!accessToken) {
+    return res
+      .status(401)
+      .json({ message: "Access token không được cung cấp!" });
+  }
+  const decodedToken = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
+  const { userid: userIdDecoded } = decodedToken;
+  if (userIdDecoded !== userid) {
+    return res.status(401).json({ message: "Access token không hợp lệ!" });
+  }
   try {
     const user = router.db.get("users").find({ id: userid }).value();
     if (!user) {

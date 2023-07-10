@@ -6,11 +6,11 @@ const {
   userUpdateController,
 } = require("../controllers/user");
 
-router.get("/", (req, res) => {
+router.get("/:userid", (req, res) => {
   usersGetController(req, res);
 });
 
-router.patch("/", (req, res) => {
+router.patch("/:userid", (req, res) => {
   userUpdateController(req, res);
 });
 
