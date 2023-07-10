@@ -1,25 +1,21 @@
 const jsonServer = require("json-server");
 const router = jsonServer.router("data/db.json");
 const jwt = require("jsonwebtoken");
-const getController = (req, res) => {
-  const { id } = req.params;
-  const accessTokenBearer = req.headers.authorization;
-  if (!accessTokenBearer) {
+const getController = async (req, res) => {
+  const { userid } = req.query;
+  const accessToken = req.headers.authorization.split(" ")[1];
+  if (!accessToken) {
     return res
       .status(401)
       .json({ message: "Access token không được cung cấp!" });
   }
-  const accessToken = accessTokenBearer.split(" ")[1];
-  if (!accessToken) {
-    return res.status(401).json({ message: "Access token không hợp lệ !" });
-  }
   try {
-    const decodedToken = jwt.verify(
+    const decodedToken = await jwt.verify(
       accessToken,
       process.env.ACCESS_TOKEN_SECRET
     );
-    const { userid } = decodedToken;
-    if (userid !== id) {
+    const { userid: userIdDecoded } = decodedToken;
+    if (userIdDecoded !== userid) {
       return res.status(401).json({ message: "Access token không hợp lệ!" });
     }
     const user = router.db.get("users").find({ id: userid }).value();

@@ -4,9 +4,12 @@ const { v4: uuidv4 } = require("uuid");
 
 const createController = async (req, res) => {
   const { items } = req.body;
-  const userid = req.headers.user;
-  const orders = [];
+  const userid = req.headers.userid;
+  if (!userid) {
+    return res.status(400).json({ message: "Thiếu thông tin đơn hàng" });
+  }
   try {
+    const orders = [];
     const products = await router.db.get("products").value();
     const order = {
       id: uuidv4(),
@@ -35,12 +38,13 @@ const createController = async (req, res) => {
     }
     await router.db.get("orders").push(order).write();
     orders.push(order);
+    return res.status(200).json({ message: "Đặt hàng thành công!", orders });
   } catch (error) {
     console.error(error);
     return res
       .status(500)
       .json({ message: "Sản phẩm không tồn tại hoặc không đủ số lượng!" });
   }
-  res.status(200).json({ message: "Đặt hàng thành công!", orders });
 };
 module.exports = createController;
+

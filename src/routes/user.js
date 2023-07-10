@@ -4,13 +4,13 @@ const router = express.Router();
 const {
   usersGetController,
   userUpdateController,
-} = require("../controllers/users");
+} = require("../controllers/user");
 
-router.get("/:id", (req, res) => {
+router.get("/", (req, res) => {
   usersGetController(req, res);
 });
 
-router.patch("/:id", (req, res) => {
+router.patch("/", (req, res) => {
   userUpdateController(req, res);
 });
 

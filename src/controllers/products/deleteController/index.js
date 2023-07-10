@@ -1,10 +1,32 @@
 const fs = require("fs");
 const jsonServer = require("json-server");
 const router = jsonServer.router("data/db.json");
+const jwt = require("jsonwebtoken");
 const { checkId } = require("../helpers");
 
 const deleteProductController = async (req, res) => {
   const { id } = req.query;
+  const { authorization } = req.headers;
+  if (!authorization) {
+    return res.status(400).json({ message: "Access token không hợp lệ!" });
+  }
+  const accessToken = authorization.split(" ")[1];
+  if (!accessToken) {
+    return res.status(400).json({ message: "Access token không hợp lệ!" });
+  }
+  const decoded = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
+
+  if (!decoded) {
+    return res.status(400).json({ message: "Access token không hợp lệ!" });
+  }
+  const user = await router.db
+    .get("users")
+    .find({ id: decoded.userid })
+    .value();
+  if (!user) {
+    return res.status(400).json({ message: "Access token không hợp lệ!" });
+  }
+
   try {
     if (!checkId(id)) {
       return res.status(404).json({ message: "Không tìm thấy sản phẩm!" });

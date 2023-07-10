@@ -5,7 +5,7 @@
       "name": "Huawei Matebook X Pro",
       "type": "new",
       "category": "laptop",
-      "quantity": 100,
+      "quantity": 1000,
       "price": 1499,
       "images": [
         "/images/huawei-matebook-x-pro/huawei-matebook-x-pro.webp",
@@ -38,7 +38,7 @@
       "type": "new",
       "category": "phone",
       "price": 1299,
-      "quantity": 150,
+      "quantity": 1500,
       "images": [
         "/images/huawei-p50-pro/huawei-p50-pro.webp",
         "/images/huawei-p50-pro/huawei-p50-pro2.webp"
@@ -66,7 +66,7 @@
       "type": "new",
       "category": "phone",
       "price": 599,
-      "quantity": 986,
+      "quantity": 999,
       "images": [
         "/images/huawei-p50-pocket/huawei-p50-pocket.webp",
         "/images/huawei-p50-pocket/huawei-p50-pocket2.webp"
@@ -94,7 +94,7 @@
       "type": "used",
       "category": "laptop",
       "price": 599,
-      "quantity": 90,
+      "quantity": 999,
       "images": [
         "/images/huawei-matebook-d14/huawei-matebook-d14.webp",
         "/images/huawei-matebook-d14/huawei-matebook-d142.webp"
@@ -122,7 +122,7 @@
       "type": "used",
       "category": "phone",
       "price": 499,
-      "quantity": 94,
+      "quantity": 999,
       "images": [
         "/images/huawei-p50-pocket/huawei-p50-pocket.webp",
         "/images/huawei-p50-pocket/huawei-p50-pocket2.webp"
@@ -149,7 +149,7 @@
       "name": "Huawei Matebook X Pro",
       "type": "used",
       "category": "laptop",
-      "quantity": 100,
+      "quantity": 9999,
       "price": 1499,
       "images": [
         "/images/huawei-matebook-x-pro/huawei-matebook-x-pro.webp",
@@ -182,7 +182,7 @@
       "type": "used",
       "category": "phone",
       "price": 1299,
-      "quantity": 143,
+      "quantity": 9999,
       "images": [
         "/images/huawei-p50-pro/huawei-p50-pro.webp",
         "/images/huawei-p50-pro/huawei-p50-pro2.webp"
