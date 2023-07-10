@@ -1,0 +1,259 @@
+{
+  "products": [
+    {
+      "id": "1-hw-matebook-x-pro",
+      "name": "Huawei Matebook X Pro",
+      "type": "new",
+      "category": "laptop",
+      "quantity": 1000,
+      "price": 1499,
+      "images": [
+        "/images/huawei-matebook-x-pro/huawei-matebook-x-pro.webp",
+        "/images/huawei-matebook-x-pro/huawei-matebook-x-pro2.webp"
+      ],
+      "ratings": [
+        {
+          "userid": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
+          "rating": 10
+        },
+        {
+          "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+          "rating": 8
+        }
+      ],
+      "sales": [
+        {
+          "type": "new",
+          "count": 50
+        },
+        {
+          "type": "used",
+          "count": 20
+        }
+      ]
+    },
+    {
+      "id": "2-hw-p50-pro",
+      "name": "Huawei P50 Pro",
+      "type": "new",
+      "category": "phone",
+      "price": 1299,
+      "quantity": 1500,
+      "images": [
+        "/images/huawei-p50-pro/huawei-p50-pro.webp",
+        "/images/huawei-p50-pro/huawei-p50-pro2.webp"
+      ],
+      "ratings": [
+        {
+          "userid": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
+          "rating": 10
+        },
+        {
+          "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+          "rating": 9
+        }
+      ],
+      "sales": [
+        {
+          "type": "new",
+          "count": 150
+        }
+      ]
+    },
+    {
+      "id": "3-hw-p50-pocket",
+      "name": "Huawei P50 Pocket",
+      "type": "new",
+      "category": "phone",
+      "price": 599,
+      "quantity": 999,
+      "images": [
+        "/images/huawei-p50-pocket/huawei-p50-pocket.webp",
+        "/images/huawei-p50-pocket/huawei-p50-pocket2.webp"
+      ],
+      "ratings": [
+        {
+          "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+          "rating": 7
+        },
+        {
+          "userid": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
+          "rating": 8
+        }
+      ],
+      "sales": [
+        {
+          "type": "new",
+          "count": 50
+        }
+      ]
+    },
+    {
+      "id": "4-hw-matebook-d14",
+      "name": "Huawei Matebook D14",
+      "type": "used",
+      "category": "laptop",
+      "price": 599,
+      "quantity": 999,
+      "images": [
+        "/images/huawei-matebook-d14/huawei-matebook-d14.webp",
+        "/images/huawei-matebook-d14/huawei-matebook-d142.webp"
+      ],
+      "ratings": [
+        {
+          "userid": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
+          "rating": 9
+        },
+        {
+          "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+          "rating": 10
+        }
+      ],
+      "sales": [
+        {
+          "type": "used",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "id": "5-hw-p50-pocket",
+      "name": "Huawei P50 Pocket",
+      "type": "used",
+      "category": "phone",
+      "price": 499,
+      "quantity": 999,
+      "images": [
+        "/images/huawei-p50-pocket/huawei-p50-pocket.webp",
+        "/images/huawei-p50-pocket/huawei-p50-pocket2.webp"
+      ],
+      "ratings": [
+        {
+          "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+          "rating": 7
+        },
+        {
+          "userid": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
+          "rating": 8
+        }
+      ],
+      "sales": [
+        {
+          "type": "used",
+          "count": 50
+        }
+      ]
+    },
+    {
+      "id": "6-hw-matebook-x-pro",
+      "name": "Huawei Matebook X Pro",
+      "type": "used",
+      "category": "laptop",
+      "quantity": 9999,
+      "price": 1499,
+      "images": [
+        "/images/huawei-matebook-x-pro/huawei-matebook-x-pro.webp",
+        "/images/huawei-matebook-x-pro/huawei-matebook-x-pro2.webp"
+      ],
+      "ratings": [
+        {
+          "userid": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
+          "rating": 10
+        },
+        {
+          "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+          "rating": 8
+        }
+      ],
+      "sales": [
+        {
+          "type": "new",
+          "count": 50
+        },
+        {
+          "type": "used",
+          "count": 20
+        }
+      ]
+    },
+    {
+      "id": "7-hw-p50-pro",
+      "name": "Huawei P50 Pro",
+      "type": "used",
+      "category": "phone",
+      "price": 1299,
+      "quantity": 9999,
+      "images": [
+        "/images/huawei-p50-pro/huawei-p50-pro.webp",
+        "/images/huawei-p50-pro/huawei-p50-pro2.webp"
+      ],
+      "ratings": [
+        {
+          "userid": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
+          "rating": 10
+        },
+        {
+          "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+          "rating": 9
+        }
+      ],
+      "sales": [
+        {
+          "type": "new",
+          "count": 150
+        }
+      ]
+    },
+    {
+      "id": "8-hw-p50-pocket",
+      "name": "Huawei P50 Pocket",
+      "type": "used",
+      "category": "phone",
+      "price": 599,
+      "quantity": 1000,
+      "images": [
+        "/images/huawei-p50-pocket/huawei-p50-pocket.webp",
+        "/images/huawei-p50-pocket/huawei-p50-pocket2.webp"
+      ],
+      "ratings": [
+        {
+          "userid": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+          "rating": 7
+        },
+        {
+          "userid": "cb14a7df-3c5e-4370-83b2-506c2d3bc709",
+          "rating": 8
+        }
+      ],
+      "sales": [
+        {
+          "type": "new",
+          "count": 50
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "c6204f87-dc19-4e68-b18f-1918ab78fdb4",
+      "username": "admin",
+      "password": "$2a$10$FfexDtd4vLSDCkbHI/.i6uSqcz/pPfh7L3ivsUjswBnUSlr0JLhW6",
+      "address": "197 Tran Phu, Ha Dong, Ha Noi, Viet Nam",
+      "email": "duongcoilc2004@gmail.com",
+      "phone": "0986921104",
+      "name": "Nguyen Duong",
+      "role": "admin"
+    },
+    {
+      "id": "33f06aed-bd90-4ce3-8da3-d98998dd0c50",
+      "username": "admin2",
+      "password": "$2a$10$7r7yDijGeHV46wTeKxJi/uxeSLbLQQYcIg8NX/S1p7rczePAXtw4i",
+      "address": "197 Tran Phu",
+      "phone": "0986921104",
+      "name": "NguyenDuong",
+      "role": "admin",
+      "email": "codebyduong@gmail.com"
+    }
+  ],
+  "orders": []
+}
