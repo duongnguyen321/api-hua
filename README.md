@@ -279,7 +279,7 @@ The server will start running on the specified port (default: 3001).
   ```json
   {
     "headers": {
-      "userid": "33f06aed-bd90-4ce3-8da3-d98998dd0c50"
+      "userid": "UuSsEeRrIiDd"
     },
     "body": {
       "items": [
@@ -301,7 +301,7 @@ The server will start running on the specified port (default: 3001).
       "message": "Đặt hàng thành công!",
       "orders": [
         {
-          "id": "24a704b8-da62-40f7-9d24-0abf2e876945",
+          "id": "OoRrDdEeRrIiDd",
           "productid": [
             "1-hw-matebook-x-pro",
             "2-hw-p50-pro",
