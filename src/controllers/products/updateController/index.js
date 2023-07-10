@@ -15,7 +15,10 @@ const updateProductController = async (req, res) => {
   if (!accessToken) {
     return res.status(400).json({ message: "Access token không hợp lệ!" });
   }
-  const decoded = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
+  const decoded = await jwt.verify(
+    accessToken,
+    process.env.ACCESS_TOKEN_SECRET
+  );
 
   if (!decoded) {
     return res.status(400).json({ message: "Access token không hợp lệ!" });

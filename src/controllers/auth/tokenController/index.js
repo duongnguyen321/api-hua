@@ -15,11 +15,11 @@ const refreshTokenMiddleware = async (req, res) => {
   }
 
   try {
-    const decodedRefreshToken = jwt.verify(
+    const decodedRefreshToken = await jwt.verify(
       refreshToken,
       process.env.REFRESH_TOKEN_SECRET
     );
-    const decodedPrevAccessToken = jwt.decode(
+    const decodedPrevAccessToken = await jwt.decode(
       prevAccessToken,
       process.env.ACCESS_TOKEN_SECRET
     );
@@ -59,7 +59,7 @@ const autoLoginController = async (req, res) => {
   }
 
   try {
-    const decodedToken = jwt.verify(
+    const decodedToken = await jwt.verify(
       accessToken,
       process.env.ACCESS_TOKEN_SECRET
     );

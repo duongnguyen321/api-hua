@@ -10,7 +10,7 @@ const getController = async (req, res) => {
       .json({ message: "Access token không được cung cấp!" });
   }
   try {
-    const decodedToken = await jwt.verify(
+    const decodedToken =  await jwt.verify(
       accessToken,
       process.env.ACCESS_TOKEN_SECRET
     );
