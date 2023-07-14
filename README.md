@@ -106,7 +106,7 @@ The server will start running on the specified port (default: 3001).
 
   ***
 
-- **PUT /products**
+- **PUT /products?id=:id**
 
   - Description: Update product information.
   - Header:
@@ -669,7 +669,7 @@ Máy chủ sẽ bắt đầu chạy trên cổng đã chỉ định (mặc đị
 
   ***
 
-- **PUT /products**
+- **PUT /products?id=:id**
 
   - Mô tả: Cập nhật thông tin sản phẩm.
   - Header:

@@ -104,7 +104,7 @@ The server will start running on the specified port (default: 3001).
 
   ***
 
-- **PUT /products**
+- **PUT /products?id=:id**
 
   - Description: Update product information.
   - Header:

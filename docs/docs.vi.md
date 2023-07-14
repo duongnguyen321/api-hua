@@ -104,7 +104,7 @@ Máy chủ sẽ bắt đầu chạy trên cổng đã chỉ định (mặc đị
 
   ***
 
-- **PUT /products**
+- **PUT /products?id=:id**
 
   - Mô tả: Cập nhật thông tin sản phẩm.
   - Header:
