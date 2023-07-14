@@ -54,6 +54,18 @@ The server will start running on the specified port (default: 3001).
     - `id` (string): The ID of the product.
   - Returns: The product object with the specified ID.
 
+  ***
+
+- **GET /products?minprice=:minprice&maxprice=:maxprice**
+
+  - Description: Get products by price with optional filtering by type.
+  - Tham số:
+    - `minprice` (optional, number): The minimum price of products to retrieve.
+    - `maxprice` (optional, number): The maximum price of products to retrieve.
+  - Returns: An array of products matching the specified criteria.
+
+  ***
+
 - **GET /products**
 
   - Description: Get all products.
@@ -147,7 +159,7 @@ The server will start running on the specified port (default: 3001).
 
   ***
 
-- **DELETE /products**
+- **DELETE /products?id=:id**
 
   - Description: Delete a product by its ID.
   - Header:
@@ -617,6 +629,16 @@ Máy chủ sẽ bắt đầu chạy trên cổng đã chỉ định (mặc đị
     - `id` (string): ID của sản phẩm.
   - Kết quả: Đối tượng sản phẩm có ID đã chỉ định.
 
+- **GET /products?minprice=:minprice&maxprice=:maxprice**
+
+  - Mô tả: Lấy các sản phẩm với khả năng lọc tùy chọn bằng minprice và maxprice.
+  - Tham số:
+    - `minprice` (tùy chọn, số): Giá tối thiểu của sản phẩm cần lấy.
+    - `maxprice` (tùy chọn, số): Giá tối đa của sản phẩm cần lấy.
+  - Kết quả: Một mảng các sản phẩm phù hợp với các tiêu chí đã chỉ định.
+
+  ***
+
 - **GET /products**
 
   - Mô tả: Lấy tất cả sản phẩm.
@@ -710,7 +732,7 @@ Máy chủ sẽ bắt đầu chạy trên cổng đã chỉ định (mặc đị
 
   ***
 
-- **DELETE /products**
+- **DELETE /products?id=:id**
 
   - Mô tả: Xóa sản phẩm bằng ID của nó.
   - Header:

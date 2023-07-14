@@ -52,6 +52,16 @@ The server will start running on the specified port (default: 3001).
     - `id` (string): The ID of the product.
   - Returns: The product object with the specified ID.
 
+- **GET /products?minprice=:minprice&maxprice=:maxprice**
+
+  - Description: Get products by price with optional filtering by type.
+  - Tham số:
+    - `minprice` (optional, number): The minimum price of products to retrieve.
+    - `maxprice` (optional, number): The maximum price of products to retrieve.
+  - Returns: An array of products matching the specified criteria.
+
+  ***
+
 - **GET /products**
 
   - Description: Get all products.
@@ -145,7 +155,7 @@ The server will start running on the specified port (default: 3001).
 
   ***
 
-- **DELETE /products**
+- **DELETE /products?id=:id**
 
   - Description: Delete a product by its ID.
   - Header:
