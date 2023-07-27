@@ -66,6 +66,7 @@ const getController = async (req, res) => {
             (total, product) => total + product.quantity,
             0
           );
+          console.log('user', user);
           return {
             id: order.id,
             totalPrices,
