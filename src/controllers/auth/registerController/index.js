@@ -28,7 +28,7 @@ const registerController = async (req, res) => {
   };
 
   const accessToken = await generateAccessToken(user);
-  const refreshToken = await generateRefreshTokenToken(user);
+  const refreshToken = await generateRefreshToken(user);
 
   try {
     await router.db.get("users").push(user).write();
