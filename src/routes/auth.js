@@ -15,7 +15,7 @@ router.post("/register", async (req, res) => {
   authRegisterController(req, res);
 });
 
-router.post("/auth-token", async (req, res) => {
+router.get("/auth-token", async (req, res) => {
   autoLoginController(req, res);
 });
 router.post("/refresh-token", async (req, res) => {

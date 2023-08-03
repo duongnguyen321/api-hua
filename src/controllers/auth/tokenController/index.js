@@ -49,9 +49,8 @@ const refreshTokenMiddleware = async (req, res) => {
 };
 
 const autoLoginController = async (req, res) => {
-  const accessToken = req.headers.authorization.split(" ")[1];
-  const userid = req.headers.userid;
-
+  const { userid, authorization } = req.headers;
+  const accessToken = authorization?.split(" ")[1];
   if (!accessToken) {
     return res
       .status(401)

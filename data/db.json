@@ -197,6 +197,12 @@
       "name": "NguyenDuong",
       "role": "admin",
       "email": "codebyduong@gmail.com"
+    },
+    {
+      "id": "d8c61f7b-2ccf-41be-bb08-a956d4c18b68",
+      "username": "admin3",
+      "password": "$2a$10$T2eLbJm53hw7aGJuyCOsXeB80/kx0YvZxodrKDWU3jwODxUg6w7yW",
+      "role": "user"
     }
   ],
   "orders": []

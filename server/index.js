@@ -39,12 +39,10 @@ server.use(function (req, res, next) {
 server.use(async (req, res, next) => {
   const { authorization, userid: userId } = req.headers;
   if (
-    req.path === "/auth/login" ||
-    req.path === "/auth/register" ||
-    req.path === "/auth/refresh-token" ||
     req.path.startsWith("/products") ||
     req.path.startsWith("/assets") ||
     req.path.startsWith("/images") ||
+    req.path.startsWith("/auth") ||
     req.path === "/api" ||
     req.path === "/"
   ) {
