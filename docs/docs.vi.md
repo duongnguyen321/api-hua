@@ -446,9 +446,8 @@ Máy chủ sẽ bắt đầu chạy trên cổng đã chỉ định (mặc đị
 
   Tham số:
 
-  - Body:
-    `userid` (string): ID của người dùng.
   - Header: authorization Bearer
+    `userid` (string): ID của người dùng.
     `accessToken` (string): Mã thông báo truy cập của người dùng.
 
   - Kết quả: Một đối tượng với thông báo "Đăng nhập tự động thành công!" và thông tin người dùng đã được xác thực.

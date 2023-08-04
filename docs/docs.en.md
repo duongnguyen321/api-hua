@@ -444,10 +444,9 @@ The server will start running on the specified port (default: 3001).
 
   Parameters:
 
-  - Body:
-    `userid` (string): The user’s ID.
   - Header: authorization Bearer
     `accessToken` (string): The user’s access token.
+    `userid` (string): The user’s ID.
 
   - Result: An object with the message “Automatic login successful!” and authenticated user information.
 
