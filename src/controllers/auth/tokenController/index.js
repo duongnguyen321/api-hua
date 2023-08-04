@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const { generateAccessToken } = require("../helper");
 
 const refreshTokenMiddleware = async (req, res) => {
-  const refreshToken = req.headers.authorization.split(" ")[1];
+  const refreshToken = req.headers.authorization?.split(" ")[1];
   const userid = req.headers.userid;
   const prevAccessToken = req.body.accessToken;
 
