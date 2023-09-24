@@ -19,26 +19,28 @@ const createController = async (req, res) => {
       totalPrice: 0,
       status: "Đang xử lý",
     };
-    for (const { productid, quantity } of items) {
-      const product = products.find((p) => p.id === productid);
-      if (!product) {
-        throw new Error(`Sản phẩm ${productid} không tồn tại!`);
+    if (items) {
+      for (const { productid, quantity } of items) {
+        const product = products.find((p) => p.id === productid);
+        if (!product) {
+          throw new Error(`Sản phẩm ${productid} không tồn tại!`);
+        }
+        if (product.quantity < quantity) {
+          throw new Error(`Sản phẩm ${productid} không đủ số lượng!`);
+        }
+        order.productid.push(productid);
+        order.quantity.push(quantity);
+        order.totalPrice += product.price * quantity;
+        await router.db
+          .get("products")
+          .find({ id: productid })
+          .assign({ quantity: product.quantity - quantity })
+          .write();
       }
-      if (product.quantity < quantity) {
-        throw new Error(`Sản phẩm ${productid} không đủ số lượng!`);
-      }
-      order.productid.push(productid);
-      order.quantity.push(quantity);
-      order.totalPrice += product.price * quantity;
-      await router.db
-        .get("products")
-        .find({ id: productid })
-        .assign({ quantity: product.quantity - quantity })
-        .write();
+      await router.db.get("orders").push(order).write();
+      orders.push(order);
+      return res.status(200).json({ message: "Đặt hàng thành công!", orders });
     }
-    await router.db.get("orders").push(order).write();
-    orders.push(order);
-    return res.status(200).json({ message: "Đặt hàng thành công!", orders });
   } catch (error) {
     console.error(error);
     return res
